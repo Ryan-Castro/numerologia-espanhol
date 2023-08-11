@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/styles/style.css">
+    <link rel="stylesheet" href="./src/styles/containers.css">
+    <link rel="stylesheet" href="./src/styles/animations.css">
+    <link rel="stylesheet" href="./src/styles/subtitle.css">
+    <title>Numerológica</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <audio id="mainAudio" src=""></audio>
+    <audio id="audioFundo" loop="true" src="./src/audios/audioFundo.mp3"></audio>
+    <div id="container1">
+        <img src="src/images/logo.png" alt="Logo">
+        <main>
+            <div id="subtitle">
+                <div>
+                    <p id="subtitleP">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate earum ipsum vero. Perspiciatis assumenda pariatur quo explicabo ducimus unde eligendi nihil odit harum esse, placeat rem? Molestias laborum provident recusandae.
+                    </p>
+                </div>
+                <div id="playAndStop" >
+                    <button onclick="playAndStop()">
+                        <span class="material-symbols-outlined">
+                            play_arrow
+                        </span>
+                    </button>
+                </div>
+                <div id="muteAndDesmute" >
+                    <button onclick="muteAndDesmute()">
+                        <span class="material-symbols-outlined">
+                            volume_up
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <section id="secInputName">
+                <h1>PRUEBA NUMEROLÓGICA REVELA</h1>
+                <h2>Descubre por tu Fecha de Nacimiento el mejor camino a seguir en 2023</h2>
+                <p>Ingrese los detalles a continuación para recibir su Reporte de Video de Numerología personalizado GRATIS, ¡y descubra las oportunidades ocultas que aún no ha descubierto!</p>
+                <h3>Ponga su primer nombre<hr></h3>
+                <input type="text" placeholder="Ponga su primer nombre" id="inputName">
+                <input type="button" value="Analizar" onclick="starAnalyzing()" class="btnContinue">
+            </section>
+            
+            <section id="secInputDate">
+                <h1>PRUEBA NUMEROLÓGICA REVELA</h1>
+                <h2>Descubre por tu Fecha de Nacimiento el mejor camino a seguir en 2023</h2>
+                <p>Ingrese los detalles a continuación para recibir su Reporte de Video de Numerología personalizado GRATIS, ¡y descubra las oportunidades ocultas que aún no ha descubierto!</p>
+                <h3>Introduzca su fecha de nacimiento<hr></h3>
+                <div id="selectDate">
+                    <select id="inputDay"></select>
+                    <select id="inputMonth"></select>
+                    <select id="inputYear"></select>
+                </div>
+                <input type="button" value="Analizar" onclick="starAnalyzing()" class="btnContinue">
+            </section>
+
+
+            <section id="secAnalizing">
+                <h2 id="analizingName"></h2>
+                <h2 id="analizingDate"></h2>
+                <div id="analizingCalc">
+
+                </div>
+            </section>
+
+
+            <section id="secFullName">
+                <p>Para recibir una lectura GRATUITA de su Expresión personalizada, complete los detalles a continuación...</p>
+                <h3>tu género<hr></h3>
+                <select id="selectSex">
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                    <option value="">Prefiero no decirlo</option>
+                </select>
+                <h3>nombre de nacimiento completo<hr></h3>
+                <input type="text" id="inputFullName" placeholder="Nombre completo">
+                <input type="button" value="Haz click aquí para seguir leyendo" onclick="starAnalyzing()" class="btnContinue">
+            </section>
+            
+            <section id="secEmail">
+                <p>Para recibir una lectura GRATUITA de su Expresión personalizada, complete los detalles a continuación...</p>
+                <h3>Su dirección de correo electrónico<hr></h3>
+                <input type="email" id="inputEmail" placeholder="Dirección de correo electrónico (obligatorio)">
+                <h3>Estado civil<hr></h3>
+                <select id="selectSex">
+                    <option value="">Prefiero no decirlo</option>
+                    <option value="casado">Casado(a)</option>
+                    <option value="solteiro">Soltero(a)</option>
+                    <option value="namorando">Enamorarse</option>
+                    <option value="noivo">novio(a)</option>
+                    <option value="separado">Separado(a)</option>
+                    <option value="divorciado">Divorciado(a)</option>
+                    <option value="viuvo">Viúvo(a)</option>
+                </select>
+                <input type="button" value="Haz click aquí para seguir leyendo" onclick="starAnalyzing()" class="btnContinue">
+            </section>
+
+
+            <section class="secBuy" id="secBuy">
+                <div id="header">
+                    <p>Haga clic en el botón de abajo para obtener su Cuadro Numerológico Completo - De <span><s>R$ 347</s> Por apenas R$ 197</span></p>
+                </div>
+                <div id="body">
+                    <div>
+                        <img src="./src/images/capa-mapa.jpeg" alt="" id="courseCover">
+                    </div>
+                    <div>
+                        <a href="">Comprar Ahora</a>
+                        <div class="segurit"><img src="./src/images/lock.png" alt="" id="lock"><p>Todas las compras se procesan en un servidor seguro</p></div>
+                        <img src="./src/images/pagamentos.png" alt="cartões aceitados" id="payment">
+                        <h4>¡Más de medio millón de personas han pedido su Carta Numerológica Completa!</h4>
+                        <div id="testimony"><img src="./src/images/testemunho.png" alt=""><p>"¡El mapa es realmente increíble! Te muestra todo sobre ti, ¡fue un shock cuando comencé a leer y vi tantas verdades! ¡Agradecimiento al equipo por este magnífico trabajo!" - Silvia, Rio de Janeiro, R.J.</p></div>
+                    </div>
+                </div>
+                <div id="footer">
+                    <img src="./src/images/garantia-2.png" alt="">
+                    <p>Haz tu compra ahora y recibirás tu Cuadro Numerológico Completo. Sabemos que obtendrá un tremendo valor de este análisis detallado, pero si dentro del período de 7 días decide que no está 100% satisfecho con su Cuadro completo de numerología.</p>
+                </div>
+            </section>
+
+
+        </main>
+    </div>
+    <div id="container2">
+        <div>
+            <a id="btn1" href="#sec1">¡Quiero mi mapa numerológico!</a>
+            <p id="p1">En este video exploraremos de una manera<span>completamente personalizado</span>todo lo que tus números de destino, expresión y motivación pueden revelar sobre ti y tu destino.<span>Te sorprenderá lo que hará</span> descúbrelo aquí...</p>
+            <ul>
+                <li>Es posible que estés "sin querer" ignorando tus deseos más profundos y te guiaremos por el camino correcto <span>para que finalmente puedas alcanzarlos</span>...</li>
+                <li>Cómo y dónde enfocar tu energía para acabar con las dificultades y disminuir tus debilidades...</li>
+                <li>Qué despierta tu entusiasmo por tu carrera y cómo cultivar tu dedicación para crecer profesionalmente y cosechar los frutos de todos tus esfuerzos...</li>
+                <li>Cómo usar tus talentos y <span>fuerzas secretas para conseguir lo que quieres</span>...</li>
+                <li>Te mostraré los rasgos de tu personalidad, tu carácter. <span>y tu forma de tratar con la gente</span>...</li>
+                <li>Cuáles son las oportunidades ocultas en tu destino y las lecciones que debes aprender <span>para superar los desafíos y lograr una vida mejor</span>...</li>
+                <li id="liEnd">Entre muchas otras revelaciones...</li>
+            </ul>
+            <a id="btn2" href="#container1">¡Haga clic aquí para recibir gratis su Informe de Numerología Personalizado!</a>
+            <p id="p2">Más de <span>43.201</span>Abundant People Recibió su Mapa Numerológico para Encontrar el Mejor Camino para Alcanzar sus Metas de Vida...</p>
+            <div id="containerCard">
+                <div class="card">
+                    <div id="depoimento1" class="depoimentosImg"></div>
+                    <p>¡El mapa numerológico fue un parteaguas en mi vida! Si buscas conocerte a ti mismo, ¡este mapa es la clave!</p>
+                </div>
+                <div class="card">
+                    <div id="depoimento2" class="depoimentosImg"></div>
+                    <p>No había hecho un mapa numerológico en mi vida, hasta estaba un poco desconfiado jajaja, pero quedé muy satisfecho con este mapa, realmente es muy profundo y trae preguntas sobre ti, es como leer un libro que fue hecho para ti !</p>
+                </div>
+                <div class="card">
+                    <div id="depoimento3" class="depoimentosImg"></div>
+                    <p>¡Nuestro! Se me puso la piel de gallina con este mapa, he hecho otros mapas antes, ¡pero este fue, con mucho, el más poderoso que he visto! ¡Felicitaciones, fue una lectura maravillosa y profunda!</p>
+                </div>
+                <div class="card">
+                    <div id="depoimento4" class="depoimentosImg"></div>
+                    <p>¡El mapa se resume en una palabra! ¡PERFECTO! Fue un viaje dentro de mí, ayudándome a entender por qué mi vida no fluía y gracias al mapa pude entender y resolver mis bloqueos. ¡Muchas gracias!</p>
+                </div>
+            </div>
+            <section class="secBuy" id="sec1">
+                <div id="header">
+                    <p>Haga clic en el botón de abajo para obtener su Cuadro Numerológico Completo - De <span><s>R$ 347</s> Por apenas R$ 197</span></p>
+                </div>
+                <div id="body">
+                    <div>
+                        <img src="./src/images/capa-mapa.jpeg" alt="" id="courseCover">
+                    </div>
+                    <div>
+                        <a href="">Comprar Ahora</a>
+                        <div class="segurit"><img src="./src/images/lock.png" alt="" id="lock"><p>Todas las compras se procesan en un servidor seguro</p></div>
+                        <img src="./src/images/pagamentos.png" alt="cartões aceitados" id="payment">
+                        <h4>¡Más de medio millón de personas han pedido su Carta Numerológica Completa!</h4>
+                        <div id="testimony"><img src="./src/images/testemunho.png" alt=""><p>"¡El mapa es realmente increíble! Te muestra todo sobre ti, ¡fue un shock cuando comencé a leer y vi tantas verdades! ¡Agradecimiento al equipo por este magnífico trabajo!" - Silvia, Rio de Janeiro, R.J.</p></div>
+                    </div>
+                </div>
+                <div id="footer">
+                    <img src="./src/images/garantia-2.png" alt="">
+                    <p>Haz tu compra ahora y recibirás tu Cuadro Numerológico Completo. Sabemos que obtendrá un tremendo valor de este análisis detallado, pero si dentro del período de 7 días decide que no está 100% satisfecho con su Cuadro completo de numerología.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <h2>El Mapa Numerológico Completo no tiene conexión con la empresa Facebook/Meta.</h2>
+
+        <h2>Advertencia: Este producto no garantiza resultados. Cada uno es responsable de su crecimiento interior, el camino ayudará al proceso y no garantizará ningún cambio.</h2>
+
+        <h2>44.302.536/0001-37</h2>
+
+        <h2>Todos los derechos reservados ®</h2>
+    </footer>
+    <script src="./src/script/Json.js"></script>
+    <script src="./src/script/script.js"></script>
+    <script src="./src/script/audios.js"></script>
+</body>
+</html>

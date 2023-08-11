@@ -1,0 +1,28 @@
+#analizingCalc{
+    background-color: rgba(83, 231, 231, 0.582);
+    border: 1px solid black;
+    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 20px;
+}
+#analizingCalc>div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#analizingCalc>div>div{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    gap: 20px;
+}
+#analizingCalc span{
+    background-color: blueviolet;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 5px 10px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 1s;
+}
