@@ -4,6 +4,7 @@
     padding: 20px 50px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
     border-radius: 20px;
 }
@@ -25,4 +26,28 @@
     border-radius: 10px;
     opacity: 0;
     transition: 1s;
+}
+@media (max-width: 550px){
+    #analizingCalc{
+        width: 100%;
+        padding: 20px 30px;
+        gap: 5px;
+    }
+    #analizingCalc>div>div{
+        gap: 5px;
+    }
+}
+@media (max-width: 460px){
+    #analizingCalc{
+        font-size: 14px;
+    }
+    #analizingCalc span{
+        padding: 5px 5px;
+    }
+}
+@media (max-width: 370px){
+    #analizingCalc{
+        font-size: 12px;
+        padding: 20px 10px;
+    }
 }

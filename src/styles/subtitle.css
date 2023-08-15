@@ -7,11 +7,12 @@
     background-color: rgba(0, 0, 0, 0.7);
     padding: 30px 70px;
     font-size: 20px;
+    text-align: center;
     display: none;
 }
 #playAndStop{
     position: absolute;
-    top: 10px;
+    top: -60px;
     right: 10px;
     display: flex;
     z-index: 100;
@@ -24,8 +25,8 @@
 }
 #muteAndDesmute{
     position: absolute;
-    top: 10px;
-    right: 40px;
+    top: -60px;
+    right: 60px;
     display: flex;
     z-index: 100;
 }
@@ -34,4 +35,19 @@
     border: none;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
+}
+@media (max-width: 750px){
+    #subtitle{
+        width: 95%;
+    }
+}
+@media (max-width: 650px){
+    #subtitle{
+        padding: 30px 20px;
+    }
+}
+@media (max-width: 550px){
+    #subtitle{
+        font-size: 16px;
+    }
 }

@@ -137,6 +137,7 @@ section input{
     display: flex;
     gap: 5px;
     margin-top: 10px;
+    padding: 20px 0px ;
 }
 #secAnalizing h2{
     margin: 0px;
@@ -320,6 +321,10 @@ button{
     #secAnalizing .text2{
         bottom: 15%;
         right: 15%;
+    }
+    #testimony{
+        width: 95%;
+        height: 100px;
     }
 }
 @media (max-width: 800px) {

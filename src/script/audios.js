@@ -3,7 +3,7 @@ function playPresentationDestiny(){
         return
     }
     document.querySelector("#container2").style.display = "none"
-    document.querySelector("#playAndStop").style.display = "flex"
+    document.querySelector("#subtitle").style.display = "flex"
     let [selectedDay, selectedMonth, selectedYear] = getDate()
     document.querySelector("#analizingName").innerHTML = _name
     document.querySelector("#analizingDate").innerHTML = `${selectedDay} / ${selectedMonth} / ${selectedYear}`
@@ -14,6 +14,7 @@ function playPresentationDestiny(){
     audio.addEventListener("timeupdate", timeupdateAudio)
     audioFundo.volume = 0.15
     audioFundo.play()
+    subtitle(subPresentationDestiny)
     function presDes(){
         presentationDestiny = true
         audio.removeEventListener("ended", presDes)
@@ -75,6 +76,7 @@ function playDestiny(){
     audio.src = `./src/audios/destiny/destino${numberDestiny}.mp3`
     audio.play()
     audio.addEventListener("ended", Dest)
+    subtitle(subDestiny[numberDestiny])
     function Dest(){
         destiny = true
         audio.removeEventListener("ended", Dest)
@@ -86,12 +88,13 @@ function playIntroductionExpression(){
     let returnTable = false
     audio.src = `./src/audios/introductionExpression.mp3`
     audio.play()
+    subtitle(subIntroductionExpression)
     audio.addEventListener("ended", intExpre)
     audio.addEventListener("timeupdate", timeupdateAudio)
     function intExpre(){
         introductionExpression = true
         showSec('secFullName')
-        document.querySelector("#playAndStop").style.display = "none"
+        document.querySelector("#subtitle").style.display = "none"
         audio.removeEventListener("ended", intExpre)   
         audio.removeEventListener("timeupdate", timeupdateAudio)
     }
@@ -112,7 +115,7 @@ function playIntroductionExpression(){
 }
 function playPresentationExpression(){
     showSec('secAnalizing')
-    document.querySelector("#playAndStop").style.display = "flex"
+    document.querySelector("#subtitle").style.display = "flex"
     document.querySelector("#secAnalizing").innerHTML = `
     <h2 id="analizingName"></h2>
     <img src="./src/images/analizeImg.png" alt="" class="imgSpin">
@@ -121,6 +124,7 @@ function playPresentationExpression(){
     document.querySelector("#analizingName").innerHTML = _fullName
     audio.src = "./src/audios/presentationExpression.mp3"
     audio.play()
+    subtitle(subPresentatiExpression)
     audio.addEventListener("ended", presExprex)
     function presExprex(){
         presentationExpression = true
@@ -137,6 +141,7 @@ function playExpression(){
     `
     audio.src = `./src/audios/expression/expressao${numberExpression}.mp3`
     audio.play()
+    subtitle(subExpression[numberExpression])
     audio.addEventListener("ended", expres)
     function expres(){
         expression = true
@@ -147,17 +152,18 @@ function playExpression(){
 function playintroductionMotivation(){
     audio.src = `./src/audios/introductionMotivation.mp3`
     audio.play()
+    subtitle(subIntroductionMotication)
     audio.addEventListener("ended", intMot)
     function intMot(){
         introductionMotivation = true
         showSec('secEmail')
-        document.querySelector("#playAndStop").style.display = "none"
+        document.querySelector("#subtitle").style.display = "none"
         audio.removeEventListener("ended", intMot)
     }
 }
 function playPresentetionMotivation(){
     showSec('secAnalizing')
-   document.querySelector("#playAndStop").style.display = "flex"
+   document.querySelector("#subtitle").style.display = "flex"
     document.querySelector("#secAnalizing").innerHTML = `
     <h2 id="analizingName"></h2>
     <img src="./src/images/analizeImg.png" alt="" class="imgSpin">
@@ -165,6 +171,7 @@ function playPresentetionMotivation(){
     document.querySelector("#analizingName").innerHTML = _fullName
     audio.src = "./src/audios/presentationMotivation.mp3"
     audio.play()
+    subtitle(subPresentationMotivation)
     audio.addEventListener("ended", presMot)
     function presMot(){
         presentationMotivation = true
@@ -180,6 +187,7 @@ function playMotivarion(){
     `
     audio.src = `./src/audios/motivation/motivacao${numberMotivation}.mp3`
     audio.play()
+    subtitle(subMotivaion[numberMotivation])
     audio.addEventListener("ended", mot)
     function mot(){
         motivarion = true
@@ -196,6 +204,7 @@ function playEnded(){
     `
     document.querySelector("#analizingName").innerHTML = _fullName
     audio.play()
+    subtitle(subEnd[1])
     audio.addEventListener("ended", audio2)
     function audio2(){
         document.querySelector("#secAnalizing").innerHTML = `
@@ -204,14 +213,19 @@ function playEnded(){
         audio.removeEventListener("ended", audio2)
         audio.src = `./src/audios/end2.mp3`
         audio.play()
+        subtitle(subEnd[2])
         audio.addEventListener("ended", audio3)
     }
     function audio3(){
         audio.removeEventListener("ended", audio3)
         ended = true
         showSec('secBuy')
-        document.querySelector("#playAndStop").style.display = "none"
         audio.src = `./src/audios/end3.mp3`
         audio.play()
+        subtitle(subEnd[3])
+        audio.addEventListener("ended", endead)
+    }
+    function endead(){
+        document.querySelector("#subtitle").style.display = "none"
     }
 }
