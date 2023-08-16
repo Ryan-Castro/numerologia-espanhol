@@ -1,193 +1,276 @@
-#container2{
-    background-image: url("../images/bg2.jpg");
+#container1{
+    width: 1170px;
+    font-family: 'Montserrat', sans-serif;
     color: white;
-    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
-#container2>div{
+#container1 h1{
+    width: 100%;
+    font-size: 42px;
+    font-weight: 800;
+    margin-top: 30px;
+}
+#container1 h2{
+    max-width: 70%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: 30px;
+}
+#container1>#contant{
+    width: 700px;
+    border-radius: 10px;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(to bottom,#17191c 2%,rgba(0,28,49,0.5) 93%,rgba(0,28,49,0.2) 100%);
-    padding: 50px;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
-
-#btn1{
-    background: #ff0085;
-    color: #fff!important;
-    font-size: 20px;
-    max-width: 900px;
+#container1>#contant h3{
+    font-size: 30px;
+    margin-top: 20px;
+}
+#container1 #inputsMonths{
     width: 100%;
-    margin-bottom: 64px;
-    padding: 10px 25px!important;
-    letter-spacing: 2px;
-    border-radius: 50px;
-    box-shadow: 0 4px 15px 0 rgb(116 79 168/75%);
-    font-family: raleway,sans-serif;
-    text-align: center;
-    text-decoration: none;
-}
-#p1{
-    max-width: 900px;
-    font-size: 27px;
-    margin-bottom: 40px;
-    font-weight: 400;
-    font-family: sans-serif;
-    text-align: center;
-}
-#p1 span{
-    color: #d6c670;
-}
-#container2 ul{
-    font-size: 19px;
-    max-width: 900px;
-    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    row-gap: 10px;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
-#container2 li{
-    margin-bottom: 25px;
-    position: relative;
-    padding-left: 35px;
-}
-#container2 li::after{
-    background-image: url("../images/seta-03.png");
-    content: " ";
-    width: 25px;
-    height: 25px;
-    background-size: cover;
-    background-position: center center;
-    position: absolute;
-    left: 0px;
-    top: 4px;
-}
-#container2 li span{
-   border-bottom: 1px solid #d6c670;
-}
-#liEnd{
-    color: #d6c670;
-}
-#btn2{
-    background: #a11111;
-    color: #fff;
-    font-size: 24px;
-    font-family: "sans-serif";
-    padding: 20px 40px;
-    display: block;
-    border-radius: 50px;
-    letter-spacing: 2px;
-    animation: expandBtn 3s linear infinite;
-    position: relative;
-    margin-bottom: 70px;
-    text-decoration: none;
-    text-align: center;
-    font-weight: 800;
-}
-@keyframes expandBtn {
-    0% { transform:scale(1, 1);}
-    50% { transform:scale(1.07, 1.06);}
-    100% { transform:scale(1, 1);}
-}
-#btn2::before{
-    content: "";
-    background-image: url("../images/seta-02.png");
-    background-size: cover;
-    width: 50px;
+#inputsMonths input{
+    width: 95%;
     height: 50px;
-    position: absolute;
-    top: -35px;
-    left: 0px;
-    right: 0px;
-    margin: auto;
+    font-size: 26px;   
+    background-color: rgb(158 41 122);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-shadow: 1px 1px 3px black;
 }
-#p2{
-    max-width: 900px;
-    font-size: 27px;
-    margin-bottom: 40px;
-    font-weight: 400;
-    font-family: sans-serif;
-    text-align: center;
-}
-#p2 span{
-    text-decoration: underline;
-    color: #d6c670;
-}
-
-#containerCard{
+#container1 #inputsDays{
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 50px;
-    width: 100%;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
-.card{
-    width: 250px;
-    margin-top: 40px;
-    text-align: justify;
-    background: rgb(64 13 63/59%);
-    border: 1px solid white;
+#container1 #inputsDays input{
+    width: 70px;
+    height: 50px;
+    font-size: 26px;   
+    background-color: rgb(158 41 122);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-shadow: 1px 1px 3px black;
 }
-.card p{
-    padding: 10px;
-}
-.depoimentosImg{
+#container1 #inputsYears{
     width: 100%;
-    height: 200px;
-    background-size: cover;
-    background-position: center center
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
-#depoimento1{
-    background-image: url("../images/depoimento1.jpg");
+#container1 #inputsYears input{
+    width: 150px;
+    height: 50px;
+    font-size: 26px;   
+    background-color: rgb(158 41 122);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-shadow: 1px 1px 3px black;
 }
-#depoimento2{
-    background-image: url("../images/depoimento2.jpg");
-}
-#depoimento3{
-    background-image: url("../images/depoimento3.jpg");
-}
-#depoimento4{
-    background-image: url("../images/depoimento4.jpg");
-}
-#container2 section{
-    display: flex !important;
-    margin-top: 100px;
-    max-width: 90%;
-}
-footer{
-    background-color: rgb(78, 78, 78);
+#container1 #divStart{
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    gap: 20px;
-    padding: 20px;
+    align-items: center;
+}
+#divStart h4{
+    width: 50%;
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+#divStart input{
+    width: 50%;
+    padding: 10px;
+}
+#divStart button{
+    margin: 50px;
+    background: #008000d3;
+    padding: 10px 55px;
+    color: #ffffff;
+    text-shadow: 1px 2px 3px black;
+    border-radius: 5px;
+    outline: none;
+    outline-offset: 0;
+    width: auto;
+    box-shadow: none;
+    font-size: 26px;
+}
+#container1 p{
+    width: 80%;
+    font-size: 26px;
+    margin-bottom: 50px;
+}
+#contantAnimation{
+    display: none;
+    border: 2px solid #bbbbbb;
+    border-radius: 15px;
+    width: 98%;
+    margin-bottom: 20px;
+    height: 250px;
+}
+#contantAnimation table{
+    padding: 10px;
+}
+#tableBorn td{
+    width: 50px;
+    opacity: 0;
+    font-size: 18px;
+    padding: 8px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    transition: .5s;
+    
+}
+#tableBorn .info{
+    width: 120px;
+    background-color: rgba(220, 92, 137, 0.7);
+}
+#tableBorn .info>div{
+    height: 20px;
+    padding-top: 20px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+@media (max-width: 1200px){
+    #container1{
+        width: 850px;
+    }
+} 
+@media (max-width: 900px){
+    #container1{
+        width: 750px;
+    }
+} 
+@media (max-width: 800px) {
+    #container1{
+        width: 580px;
+    }
+    #container1 h1{
+        font-size: 33px;
+    }
+    #container1 h2{
+        font-size: 28px;
+    }
+    #container1>#contant{
+        width: 550px;
+    }
+    #container1 #inputsDays input{
+        width: 50px;
+    }
+    #container1 #inputsYears input{
+        width: 130px;
+        font-size: 23px;
+    }
+    #tableBorn td{
+        font-size: 16px;
+    }
+    #tableBorn .info{
+        width: 80px;
+    }
 }
 @media (max-width: 600px) {
-    #container2>div{
-        padding: 20px;
+    #container1{
+        width: 500px;
     }
-    #container2 section{
-        width: 100%;
+    #container1 h1{
+        font-size: 28px;
     }
-    .card{
-        width: 100%;
+    #container1 h2{
+        font-size: 26px;
     }
-    footer h2{
+    #container1>#contant{
+        width: 400px;
+    }
+    #inputsMonths input{
+        font-size: 20px;
+    }
+    #container1 #inputsDays input{
+        width: 40px;
+        height: 40px;
         font-size: 18px;
     }
-}
-@media (max-width: 450px) {
-    #container2>div{
-        padding: 10px;
+    #container1 #inputsYears input{
+        width: 70px;
+        font-size: 18px;
     }
-    #testimony{
-        height: 130px;
-    }
-    #secAnalizing p{
+    #container1>#contant h3{
         font-size: 25px;
     }
 }
-@media (max-width: 350px) {
-    #container2 #testimony{
-        height: 170px;
+@media (max-width: 550px) {
+    #container1{
+        width: 430px;
+    }
+    #container1 h1{
+        font-size: 24px;
+    }
+    #container1 h2{
+        font-size: 22px;
+    }
+    #container1 #inputsYears input{
+        width: 50px;
+        height: 30px;
+        font-size: 16px;
+    }
+    #container1>#contant h3{
+        font-size: 20px;
+    }
+    #tableBorn td{
+        font-size: 15px;
+    }
+    #tableBorn .info{
+        width: 50px;
+    }
+}
+@media (max-width: 450px) {
+    #container1 #inputsDays input{
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+    #container1{
+        width: 300px;
+    }
+    #container1 h1{
+        font-size: 17px;
+    }
+    #container1 h2{
+        font-size: 16px;
+    }
+    #container1>#contant{
+        width: 300px;
+    }
+    #inputsMonths input{
+        font-size: 18px;
+    }
+    #tableBorn td{
+        font-size: 13px;
     }
 }

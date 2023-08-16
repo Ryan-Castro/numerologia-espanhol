@@ -13,6 +13,13 @@ let introductionExpression = false
 let introductionMotivation = false
 let ended = false
 let months = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"]
+let dateBorn = {d: "", m: "", y:""}
+let sumDate = {d: "", m: "", y:""}
+let sumDestiny = 0
+
+function $(element){
+    return document.querySelector(element)
+}
 
 function starAnalyzing() {
     if(!selectedName){
@@ -22,7 +29,7 @@ function starAnalyzing() {
             return
         }
         selectedName = true
-        showSec('secInputDate')
+        starAnalyzing()
         return
     }
     if(!presentationDestiny){
@@ -151,38 +158,6 @@ function synthesizeNumber(number){
     }
     return baseNum
 }
-
-function showSec(section){
-    hideSec()
-    document.querySelector("#"+section).style.display = "flex"
-}
-function hideSec(){
-    document.querySelectorAll("section").forEach(element=>{
-        element.style.display = "none"
-    })
-}
-function setCalendar(){
-    document.querySelector("#inputDay").innerHTML = `<option value="">Poner un día</option>`
-    document.querySelector("#inputMonth").innerHTML = `<option value="">Poner um Mes</option>`
-    document.querySelector("#inputYear").innerHTML = `<option value="">Poner um Ano</option>`
-    for(let day=1;day<32;day++){
-        if(day<10){
-            document.querySelector("#inputDay").innerHTML += `<option value='0${day}'>0${day}</option>`
-        } else {
-            document.querySelector("#inputDay").innerHTML += `<option value='${day}'>${day}</option>`
-        }
-    }
-    for(let month=1;month<13;month++){
-        if(month<10){
-            document.querySelector("#inputMonth").innerHTML += `<option value='0${month}'>${months[month-1]}</option>`
-        } else {
-            document.querySelector("#inputMonth").innerHTML += `<option value='${month}'>${months[month-1]}</option>`
-        }
-    }
-    for(let year=0;year<100;year++){
-        document.querySelector("#inputYear").innerHTML += `<option value=${(2023 - year)}>${(2023 - year)}</option>`
-    }
-}
 function playAndStop(){
     if(audio.paused){
         audio.play()
@@ -231,5 +206,3 @@ function setAnalizingCalc(){
     <span>${destiny}</span>
     `
 }
-showSec("secInputName")
-setCalendar()
