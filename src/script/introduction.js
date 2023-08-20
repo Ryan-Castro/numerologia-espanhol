@@ -2,7 +2,7 @@ function setMonth(monthNumber, month){
     dateBorn.m = monthNumber
     let monthSumText = monthNumber.length > 1? `${monthNumber[0]} + ${monthNumber[1]}` : monthNumber
     let monthSumNumber = monthNumber.length > 1? (Number(monthNumber[0]) + Number(monthNumber[1])): monthNumber
-    sumDate.m = monthSumNumber
+    sumDate.m = Number(monthSumNumber)
     $("#textHidden").style.display = "none"
     $("#contantAnimation").style.display = "block"
     $("#tableBorn").children[0].innerHTML = `
@@ -45,12 +45,13 @@ function setDay(day){
     dateBorn.d = day
     let daySumText = day.length > 1? `${day[0]} + ${day[1]}` : day
     let daySumNumber = day.length > 1? (Number(day[0]) + Number(day[1])): day
-    sumDate.d = daySumNumber
+    sumDate.d = Number(daySumNumber)
     if(daySumNumber>9){
         daySumNumber = `${daySumNumber.toString()[0]} + ${daySumNumber.toString()[1]}`
         sumDate.d = (Number(daySumNumber[0]) + Number(daySumNumber[4]))
         setTimeout(() => {
-            $("#tableBorn").children[2].children[4].innerHTML = (Number(daySumNumber[0]) + Number(daySumNumber[4]))
+            $("#tableBorn").children[2].children[4].innerHTML = `<div><span>${(Number(daySumNumber[0]) + Number(daySumNumber[4]))}</span></div>`
+            $("#tableBorn").children[2].children[4].children[0].style.paddingTop = "0px"
         }, 3000)
     }
     $("#tableBorn").children[2].innerHTML = `
@@ -107,7 +108,8 @@ function setYear(year){
         yearSumNumber = `${yearSumNumber.toString()[0]} + ${yearSumNumber.toString()[1]}`
         sumDate.y = (Number(yearSumNumber[0]) + Number(yearSumNumber[4]))
         setTimeout(() => {
-            $("#tableBorn").children[4].children[4].innerHTML = (Number(yearSumNumber[0]) + Number(yearSumNumber[4]))
+            $("#tableBorn").children[4].children[4].innerHTML = `<div><span>${(Number(yearSumNumber[0]) + Number(yearSumNumber[4]))}</span></div>`
+            $("#tableBorn").children[4].children[4].children[0].style.paddingTop = "0px"
         }, 3000)
     }
     $("#tableBorn").children[4].innerHTML = `
@@ -131,7 +133,9 @@ function setYear(year){
     if(sumDestiny>9 && sumDestiny != 11 && sumDestiny != 22){
         sumDestiny = `${sumDestiny.toString()[0]} + ${sumDestiny.toString()[1]}`
         setTimeout(() => {
-            $("#tableBorn").children[2].children[6].innerHTML = (Number(sumDestiny[0]) + Number(sumDestiny[4]))
+            $("#tableBorn").children[2].children[6].innerHTML = `<div><span>${(Number(sumDestiny[0]) + Number(sumDestiny[4]))}</span></div>`
+            $("#tableBorn").children[2].children[6].children[0].style.paddingTop =  "0px"
+            let load = true
         }, 5000)
     }
     setTimeout(() => {
@@ -145,7 +149,6 @@ function setYear(year){
     }, 4000)
     setLayoutName()
 }
-
 function setLayoutName(){
     $("section#inputs").innerHTML = `
     <h3>Indica tu primer nombre</h3>
@@ -154,6 +157,5 @@ function setLayoutName(){
         <input type="text"  placeholder="Nombre" id="inputName">
         <button onclick="starAnalyzing()">Comenzar</button>
     </div>
-    `
-    
+    `    
 }

@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/styles/style.css">
-    <link rel="stylesheet" href="./src/styles/containers.css">
+    <link rel="stylesheet" href="./src/styles/container1.css">
+    <link rel="stylesheet" href="./src/styles/container2.css">
+    <link rel="stylesheet" href="./src/styles/container3.css">
     <link rel="stylesheet" href="./src/styles/animations.css">
     <link rel="stylesheet" href="./src/styles/subtitle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,12 +58,70 @@
                 </div>
             </div>
         </section>
+        <section id="container2">
+            <h1 id="analizingName"></h1>
+            <h2 id="analizingDate"></h2>
+            <div id="analizingDiv"></div>
+        </section>
+        <section id="container3">
+            <div>
+                <p>Para obtener tu lectura personalizada gratuita de expresión, completa la información a continuación...</p>
+            </div>
+            <div>
+                <div>
+                    <h3 class="titleInput">
+                        <span>
+                            tu género 
+                        </span>
+                        <hr>
+                        <span class="num">1</span>
+                    </h3>
+                    <select id="genderSelect">
+                        <option value="m">Masculino</option>
+                        <option value="w">Femenino</option>
+                    </select>
+                </div>
+                <div>
+                    <h3 class="titleInput">
+                        <span>
+                            tu nombre completo 
+                        </span>
+                        <hr>
+                        <span class="num">2</span>
+                    </h3>
+                    <input type="text" id="inputFullName" placeholder="Nombre completo">
+                </div>
+                <div>
+                    <h3 class="titleInput">
+                        <span></span>
+                        <span class="num">3</span>
+                    </h3>
+                    <button onclick="starAnalyzing()">continuar con lectura</button>
+                </div>
+            </div>
+        </section> 
     </main>
 
+    <div id="containerLoad">
+        <div>
+            <div>
+                <div class="circle" style="top:30%; left: 0%; animation-delay: 0s"></div>
+                <div class="circle" style="top:30%; left: 100%; animation-delay: 2s"></div>
+                <div class="circle" style="bottom:30%; left: 0%; animation-delay: 4s"></div>
+                <div class="circle" style="bottom:30%; left: 100%; animation-delay: 0s"></div>
+                <div class="circle" style="top: 0%; left: 50%; animation-delay:2s;"></div>
+                <div class="circle" style="bottom: 0%; left:50%; animation-delay: 4s"></div>
+            </div>
+        </div>
+    </div>
+    
     <script src="./src/script/Json.js"></script>
     <script src="./src/script/script.js"></script>
+    <script src="./src/script/control.js"></script>
     <script src="./src/script/audios.js"></script>
     <script src="./src/script/subtitle.js"></script>
-    <script src="src/script/animation.js"></script>
+    <script src="./src/script/introduction.js"></script>
+    <script src="./src/script/animations.js"></script>
+    <script src="./src/script/table.js"></script>
 </body>
 </html>

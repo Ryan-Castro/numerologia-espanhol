@@ -1,197 +1,172 @@
 function playPresentationDestiny(){
-    if(checkInputs()){
-        return
-    }
-    document.querySelector("#container2").style.display = "none"
-    document.querySelector("#subtitle").style.display = "flex"
-    let [selectedDay, selectedMonth, selectedYear] = getDate()
+    $("#container1").style.display = "none"
+    $("#container2").style.display = "flex"
     document.querySelector("#analizingName").innerHTML = _name
-    document.querySelector("#analizingDate").innerHTML = `${selectedDay} / ${selectedMonth} / ${selectedYear}`
-    showSec('secAnalizing')
+    document.querySelector("#analizingDate").innerHTML = `${dateBorn.d} / ${dateBorn.m} / ${dateBorn.y}`
     audio.src = "./src/audios/presentationOnDestiny.mp3"
     audio.play()
     audio.addEventListener("ended", presDes)
-    audio.addEventListener("timeupdate", timeupdateAudio)
+    audio.addEventListener("timeupdate", PresentationDestinyAnimation)
     audioFundo.volume = 0.15
     audioFundo.play()
-    subtitle(subPresentationDestiny)
+    setAnalizingCalc()
+    //subtitle(subPresentationDestiny)
     function presDes(){
         presentationDestiny = true
         audio.removeEventListener("ended", presDes)
-        audio.removeEventListener("timeupdate", timeupdateAudio)
+        audio.removeEventListener("timeupdate", PresentationDestinyAnimation)
         starAnalyzing()
     }
-    function timeupdateAudio(){
-        let _Ref = document.querySelector("#analizingCalc")
-        function showSpan(column, row, columnInRow){
-            _Ref.children[column].children[row].children[columnInRow].style.opacity = 1
-        }
-        if(audio.currentTime.toFixed(2)>1){
-            showSpan(0, 0, 0)
-        }
-        if(audio.currentTime.toFixed(2)>2){
-            showSpan(0, 0, 1)
-            showSpan(0, 0, 2)
-        }
-        if(audio.currentTime.toFixed(2)>3){
-            showSpan(0, 0, 3)
-            showSpan(0, 0, 4)
-        }
-        if(audio.currentTime.toFixed(2)>4){
-            showSpan(0, 1, 0)
-        }
-        if(audio.currentTime.toFixed(2)>5){
-            showSpan(0, 1, 1)
-            showSpan(0, 1, 2)
-        }
-        if(audio.currentTime.toFixed(2)>6){
-            showSpan(0, 1, 3)
-            showSpan(0, 1, 4)
-        }
-        if(audio.currentTime.toFixed(2)>7){
-            showSpan(0, 2, 0)
-        }
-        if(audio.currentTime.toFixed(2)>8){
-            showSpan(0, 2, 1)
-            showSpan(0, 2, 2)
-        }
-        if(audio.currentTime.toFixed(2)>9){
-            showSpan(0, 2, 3)
-            showSpan(0, 2, 4)
-        }
-        if(audio.currentTime.toFixed(2)>10){
-            _Ref.children[1].style.opacity = 1
-            _Ref.children[2].style.opacity = 1
-        }
-
-        
-    }
+    
 }
 function playDestiny(){
-    let numberDestiny = calcDestiny()
-    document.querySelector("#secAnalizing").innerHTML = `
-    <h2>Tu número de Destino es: ${numberDestiny}</h2>
-    <img src="./src/images/Destino/${numberDestiny}.png" class="imgFocus">
-    `
+    let numberDestiny = Number(sumDate.d) + Number(sumDate.m) + Number(sumDate.y)
+    if(numberDestiny > 9 && numberDestiny != 11 && numberDestiny != 22){
+        numberDestiny = Number(numberDestiny.toString()[0]) + Number(numberDestiny.toString()[1])
+    }
+    insertImage(0, 0, `Tu número de destino es: ${numberDestiny}`)
     audio.src = `./src/audios/destiny/destino${numberDestiny}.mp3`
     audio.play()
     audio.addEventListener("ended", Dest)
-    subtitle(subDestiny[numberDestiny])
+    audio.addEventListener("timeupdate", destinyAnimation)
+    //subtitle(subDestiny[numberDestiny])
     function Dest(){
         destiny = true
+        audio.removeEventListener("timeupdate", destinyAnimation)
         audio.removeEventListener("ended", Dest)
         starAnalyzing()
     }
 }
 function playIntroductionExpression(){
-    let table = false
-    let returnTable = false
     audio.src = `./src/audios/introductionExpression.mp3`
     audio.play()
-    subtitle(subIntroductionExpression)
+    //subtitle(subIntroductionExpression)
     audio.addEventListener("ended", intExpre)
-    audio.addEventListener("timeupdate", timeupdateAudio)
+    audio.addEventListener("timeupdate", IntroductionExpressionAnimation)
     function intExpre(){
         introductionExpression = true
-        showSec('secFullName')
-        document.querySelector("#subtitle").style.display = "none"
+        $("#container2").style.display = "none"
+        $("#container3").style.display = "flex"
+        //$("#subtitle").style.display = "none"
         audio.removeEventListener("ended", intExpre)   
-        audio.removeEventListener("timeupdate", timeupdateAudio)
-    }
-    function timeupdateAudio(){
-        if(audio.currentTime.toFixed(2)>62 && !table){
-            document.querySelector("#secAnalizing").innerHTML = `
-                <img src="./src/images/table.jpeg" class="imgFocus" id="tableImg">
-            `
-            table = true
-        }
-        if(audio.currentTime.toFixed(2)>77 && !returnTable){
-            document.querySelector("#secAnalizing").innerHTML = `
-            <img src="./src/images/analizeImg.png" alt="" class="imgSpin">
-            `
-            returnTable = true
-        }
+        audio.removeEventListener("timeupdate", IntroductionExpressionAnimation)
     }
 }
 function playPresentationExpression(){
-    showSec('secAnalizing')
-    document.querySelector("#subtitle").style.display = "flex"
-    document.querySelector("#secAnalizing").innerHTML = `
-    <h2 id="analizingName"></h2>
-    <img src="./src/images/analizeImg.png" alt="" class="imgSpin">
-
-    `
-    document.querySelector("#analizingName").innerHTML = _fullName
+    $("#container3").style.display = "none"
+    $("#container2").style.display = "flex"
+    //$("#subtitle").style.display = "flex"
+    insertImage(0, 1, _fullName)
     audio.src = "./src/audios/presentationExpression.mp3"
     audio.play()
-    subtitle(subPresentatiExpression)
+    //subtitle(subPresentatiExpression)
     audio.addEventListener("ended", presExprex)
+    audio.addEventListener("timeupdate", presentationExpressionAnimation)
     function presExprex(){
         presentationExpression = true
         audio.removeEventListener("ended", presExprex)
+        audio.removeEventListener("timeupdate", presentationExpressionAnimation)
         starAnalyzing()
     }
 
 }
 function playExpression(){
     let numberExpression = calcExpression()
-    document.querySelector("#secAnalizing").innerHTML = `
-    <h2>Su número de expresión es: ${numberExpression}</h2>
-    <img src="./src/images/Expressao/${numberExpression}.png" class="imgFocus">
-    `
+    insertImage(0, 0, `Tu número de expression es: ${numberExpression}`)
     audio.src = `./src/audios/expression/expressao${numberExpression}.mp3`
     audio.play()
-    subtitle(subExpression[numberExpression])
+    //subtitle(subExpression[numberExpression])
     audio.addEventListener("ended", expres)
+    audio.addEventListener("timeupdate", expressionAnimation)
     function expres(){
         expression = true
         audio.removeEventListener("ended", expres)
+        audio.removeEventListener("timeupdate", expressionAnimation)
         starAnalyzing()
     }
 }
 function playintroductionMotivation(){
     audio.src = `./src/audios/introductionMotivation.mp3`
     audio.play()
-    subtitle(subIntroductionMotication)
+    //subtitle(subIntroductionMotication)
     audio.addEventListener("ended", intMot)
+    insertImage(0, 2, "número de motivación")
+    $("#container3").innerHTML = `
+        <div>
+            <p>Para obtener tu lectura personalizada gratuita de motivación, completa la información a continuación...</p>
+        </div>
+        <div>
+            <div>
+                <h3 class="titleInput">
+                    <span>
+                        Su e-mail 
+                    </span>
+                    <hr>
+                    <span class="num">2</span>
+                </h3>
+                <input type="email" id="inputEmail" placeholder="e-mail">
+            </div>
+            <div>
+                <h3 class="titleInput">
+                    <span>
+                        tu género 
+                    </span>
+                    <hr>
+                    <span class="num">1</span>
+                </h3>
+                <select id="statusSelect">
+                    <option value="casado">Casado(a)</option>
+                    <option value="soltero">Soltero(a)</option>
+                    <option value="comprometida">Comprometido(a)</option>
+                    <option value="divorciado">Divorciado(a)</option>
+                    <option value="viudo">Viudo(a)</option>
+                </select>
+            </div>
+            <div>
+                <h3 class="titleInput">
+                    <span></span>
+                    <span class="num">3</span>
+                </h3>
+                <button onclick="starAnalyzing()">continuar con lectura</button>
+            </div>
+        </div>
+    `
     function intMot(){
         introductionMotivation = true
-        showSec('secEmail')
-        document.querySelector("#subtitle").style.display = "none"
+        $("#container2").style.display = "none"
+        $("#container3").style.display = "flex"
+        //$("#subtitle").style.display = "none"
         audio.removeEventListener("ended", intMot)
     }
 }
 function playPresentetionMotivation(){
-    showSec('secAnalizing')
-   document.querySelector("#subtitle").style.display = "flex"
-    document.querySelector("#secAnalizing").innerHTML = `
-    <h2 id="analizingName"></h2>
-    <img src="./src/images/analizeImg.png" alt="" class="imgSpin">
-    `
-    document.querySelector("#analizingName").innerHTML = _fullName
+    $("#container2").style.display = "flex"
+    $("#container3").style.display = "none"
+    insertImage(0, 2, _fullName)
     audio.src = "./src/audios/presentationMotivation.mp3"
     audio.play()
-    subtitle(subPresentationMotivation)
+    //subtitle(subPresentationMotivation)
     audio.addEventListener("ended", presMot)
+    audio.addEventListener("timeupdate", presentationMotivationAnimation)
     function presMot(){
         presentationMotivation = true
         audio.removeEventListener("ended", presMot)
+        audio.removeEventListener("timeupdate", presentationMotivationAnimation)
         starAnalyzing()
     }
 }
-function playMotivarion(){
+function playMotivation(){
     let numberMotivation = calcMotivation()
-    document.querySelector("#secAnalizing").innerHTML = `
-    <h2>Su número de motivación es: ${numberMotivation}</h2>
-    <img src="./src/images/Motivacao/${numberMotivation}.png" class="imgFocus">
-    `
+    insertImage(0, 3, `Tu número de motivación es: ${numberMotivation}`)
     audio.src = `./src/audios/motivation/motivacao${numberMotivation}.mp3`
     audio.play()
-    subtitle(subMotivaion[numberMotivation])
+    //subtitle(subMotivaion[numberMotivation])
     audio.addEventListener("ended", mot)
+    audio.addEventListener("timeupdate", motivationAnimation)
     function mot(){
         motivarion = true
         audio.removeEventListener("ended", mot)
+        audio.removeEventListener("timeupdate", motivationAnimation)
         starAnalyzing()
     }
 

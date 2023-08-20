@@ -1,0 +1,62 @@
+#container3{
+    margin-top: 30px;
+    display: none;
+}
+#container3>div{
+    margin-top: 20px;
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+}
+#container3 p{
+    font-size: 20px;
+    text-align: left;
+}
+#container3 .titleInput{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    color: aqua;
+    justify-content: space-between;
+}
+#container3 .titleInput span{
+    white-space: nowrap;
+    margin-right: 10px;
+}
+#container3 .num{
+    width: 20px;
+    height: 20px;
+    margin-right: 0px !important;
+    float: right;
+    color: black;
+    background-color: aqua;
+    border-radius: 50%;
+    font-weight: 600;
+}
+#container3 .titleInput hr{
+    width: 120px;
+    height: 1px;
+    border-color: aqua;
+}
+#container3 select{
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 15px;
+}
+#container3 input{
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 15px;
+}
+#container3 button{
+    width: 300px;
+    padding: 7px;
+    margin-top: 15px;
+    background-color: rgb(158 41 122);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    border: 2px solid rgb(85, 10, 62);
+}

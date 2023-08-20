@@ -27,3 +27,61 @@ main{
 section#inputs{
     width: 100%;
 }
+main > section{
+    width: 1170px;
+    min-height: 750px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+main > section > h1{
+    width: 100%;
+    font-size: 42px;
+    font-weight: 800;
+    margin-top: 30px;
+}
+main > section > h2{
+    max-width: 70%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: 30px;
+}
+
+#containerLoad{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.452);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+#containerLoad>div>div{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    animation: spin 4s linear infinite;
+}
+
+#containerLoad .circle{
+    box-shadow: 7.5em 0em 0em 0em rgba(255, 255, 255, 0.15), 7.42701em 1.0438em 0.01308em 0.00872em rgba(255, 255, 255, 0.3745), 7.20946em 2.06728em 0.02609em 0.0174em rgba(255, 255, 255, 0.4671), 6.85159em 3.05052em 0.03898em 0.02599em rgba(255, 255, 255, 0.53758), 6.36036em 3.97439em 0.05168em 0.03445em rgba(255, 255, 255, 0.59626), 5.74533em 4.82091em 0.06413em 0.04275em rgba(255, 255, 255, 0.6471), 5.01848em 5.57359em 0.07626em 0.05084em rgba(255, 255, 255, 0.6921), 4.19395em 6.21778em 0.08803em 0.05868em rgba(255, 255, 255, 0.7324), 3.28778em 6.74096em 0.09936em 0.06624em rgba(255, 255, 255, 0.76876), 2.31763em 7.13292em 0.11021em 0.07347em rgba(255, 255, 255, 0.80167), 1.30236em 7.38606em 0.12052em 0.08035em rgba(255, 255, 255, 0.83148), 0.26175em 7.49543em 0.13025em 0.08683em rgba(255, 255, 255, 0.85844), -0.78396em 7.45891em 0.13934em 0.09289em rgba(255, 255, 255, 0.88275), -1.81441em 7.27722em 0.14775em 0.0985em rgba(255, 255, 255, 0.90454), -2.80955em 6.95388em 0.15544em 0.10363em rgba(255, 255, 255, 0.92394), -3.75em 6.49519em 0.16238em 0.10825em rgba(255, 255, 255, 0.94101), -4.61746em 5.91008em 0.16852em 0.11235em rgba(255, 255, 255, 0.95584), -5.39505em 5.20994em 0.17385em 0.1159em rgba(255, 255, 255, 0.96847), -6.06763em 4.40839em 0.17832em 0.11888em rgba(255, 255, 255, 0.97894), -6.62211em 3.52104em 0.18193em 0.12129em rgba(255, 255, 255, 0.98728), -7.04769em 2.56515em 0.18465em 0.1231em rgba(255, 255, 255, 0.99352), -7.33611em 1.55934em 0.18647em 0.12432em rgba(255, 255, 255, 0.99767), -7.48173em 0.52317em 0.18739em 0.12492em rgba(255, 255, 255, 0.99974), -7.48173em -0.52317em 0.18739em 0.12492em rgba(255, 255, 255, 0.99974), -7.33611em -1.55934em 0.18647em 0.12432em rgba(255, 255, 255, 0.99767), -7.04769em -2.56515em 0.18465em 0.1231em rgba(255, 255, 255, 0.99352), -6.62211em -3.52104em 0.18193em 0.12129em rgba(255, 255, 255, 0.98728), -6.06763em -4.40839em 0.17832em 0.11888em rgba(255, 255, 255, 0.97894), -5.39505em -5.20994em 0.17385em 0.1159em rgba(255, 255, 255, 0.96847), -4.61746em -5.91008em 0.16852em 0.11235em rgba(255, 255, 255, 0.95584), -3.75em -6.49519em 0.16238em 0.10825em rgba(255, 255, 255, 0.94101), -2.80955em -6.95388em 0.15544em 0.10363em rgba(255, 255, 255, 0.92394), -1.81441em -7.27722em 0.14775em 0.0985em rgba(255, 255, 255, 0.90454), -0.78396em -7.45891em 0.13934em 0.09289em rgba(255, 255, 255, 0.88275), 0.26175em -7.49543em 0.13025em 0.08683em rgba(255, 255, 255, 0.85844), 1.30236em -7.38606em 0.12052em 0.08035em rgba(255, 255, 255, 0.83148), 2.31763em -7.13292em 0.11021em 0.07347em rgba(255, 255, 255, 0.80167), 3.28778em -6.74096em 0.09936em 0.06624em rgba(255, 255, 255, 0.76876), 4.19395em -6.21778em 0.08803em 0.05868em rgba(255, 255, 255, 0.7324), 5.01848em -5.57359em 0.07626em 0.05084em rgba(255, 255, 255, 0.6921), 5.74533em -4.82091em 0.06413em 0.04275em rgba(255, 255, 255, 0.6471), 6.36036em -3.97439em 0.05168em 0.03445em rgba(255, 255, 255, 0.59626), 6.85159em -3.05052em 0.03898em 0.02599em rgba(255, 255, 255, 0.53758), 7.20946em -2.06728em 0.02609em 0.0174em rgba(255, 255, 255, 0.4671), 7.42701em -1.0438em 0.01308em 0.00872em rgba(255, 255, 255, 0.3745);
+    position: absolute;
+    animation: spin 4s linear infinite;
+}
+@media (max-width: 600px){
+    #containerLoad>div{
+        transform: scale(0.8);
+    }
+}
+@media (max-width: 450px){
+    #containerLoad>div{
+        transform: scale(0.5);
+    }
+}

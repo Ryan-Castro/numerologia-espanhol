@@ -1,0 +1,185 @@
+#container2{
+    display: none;
+}
+#container2>div{
+    margin-top: 70px;
+}
+#analizingCalc td{
+    width: 50px;
+    opacity: 0;
+    font-size: 18px;
+    padding: 8px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    transition: .5s;
+    
+}
+#analizingCalc .info{
+    width: 120px;
+    background-color: rgba(220, 92, 137, 0.7);
+}
+#analizingCalc .info>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    padding-top: 20px;
+    overflow: hidden;
+    transition: .5s;
+}
+#DivImage{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    margin-top: 50px;
+    transform: scale(0.3);
+    transition: .5s;
+}
+#DivImage h2{
+    width: 600px;
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+.imgBg{
+    width: 400px;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    animation: spin 15s linear infinite;
+    box-shadow: 0px 0px 50px white;
+    border-radius: 50%;
+}
+.imgMain{
+    width: 355px;
+    height: 355px;
+    background-size: cover;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    box-shadow: 0px 0px 20px white;
+}
+#analizingDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#DivNumber{
+    width: 400px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#DivNumber>div{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: spin 30s linear infinite;
+}
+#DivNumber img{
+    position: absolute;
+}
+#DivNumber span{
+    position: absolute;
+    font-size: 160px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+    transform: rotate(0deg) !important;
+}
+.spinY1{
+    animation: spinY 20s linear infinite;
+}
+.spinY2{
+    animation: spinY 10s linear infinite;
+}
+#tableCabalist{
+    width: 500px;
+    font-size: 26px;
+    border-collapse: collapse;
+}
+#tableCabalist td{
+    width: 75px;
+    padding: 5px;
+    border-left: 1px solid;
+    border-top: 1px solid;
+}
+#tableCabalist td:first-child{
+    border-left: none;
+}
+#tableCabalist th{
+    border-left: 1px solid white;
+    padding: 5px;
+    color: yellow;
+}
+#tableCabalist th:first-child{
+    border-left: none;
+}
+#tableCabalist td.active{
+    background-color: #FF1177;
+    animation: active .4s linear;
+}
+#separateName{
+    width: 800px;
+    display: flex;
+    gap: 5px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+#separateName div{
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+}
+#separateName span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 114, 114);
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+}
+#separateName span:first-child{
+    background-color: #FF1177;
+}
+@media (max-width: 800px) {
+    #container2{
+        width: 100%;
+        transform: scale(0.8);
+        margin-top: -80px;
+    }
+    #analizingDiv{
+        width: 800px;
+    }
+}
+@media (max-width: 600px) {
+    #container2{
+        transform: scale(0.55);
+        margin-top: -100px;
+    }
+    #analizingCalc td{
+        width: 20px;
+    }
+}
+@media (max-width: 450px) {
+    #container2{
+        margin-top: -200px;
+        transform: scale(0.45);
+    }
+
+}
+@media (max-width: 350px) {
+    #container2{
+        margin-top: -200px;
+        transform: scale(0.4);
+    }
+}
