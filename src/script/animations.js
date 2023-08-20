@@ -99,6 +99,9 @@ function PresentationDestinyAnimation(){
 function destinyAnimation(){
     let timeAudio = audio.currentTime.toFixed(2)
     let numberDestinyBase = Number(sumDate.d) + Number(sumDate.m) + Number(sumDate.y)
+    if(numberDestinyBase > 9 && numberDestinyBase != 11 && numberDestinyBase != 22){
+        numberDestinyBase = Number(numberDestinyBase.toString()[0]) + Number(numberDestinyBase.toString()[1])
+    }
     if(timeAudio>4){
         if(!controlerImg[4]){
             controlerImg[4] = true
