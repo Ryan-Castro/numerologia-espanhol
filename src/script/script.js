@@ -57,15 +57,19 @@ function synthesizeNumber(number){
 function playAndStop(){
     if(audio.paused){
         audio.play()
+        $("#playAndStop").children[0].innerHTML = "<span class='material-symbols-outlined'>pause</span>"
     } else {
         audio.pause()
+        $("#playAndStop").children[0].innerHTML = "<span class='material-symbols-outlined'>play_arrow</span>"
     }
 }
 function muteAndDesmute(){
     if(audio.volume > 0){
         audio.volume = 0
+        $("#muteAndDesmute").children[0].innerHTML = "<span class='material-symbols-outlined'>volume_mute</span>"
     } else {
         audio.volume = 1
+        $("#muteAndDesmute").children[0].innerHTML = "<span class='material-symbols-outlined'>volume_up</span>"
     }
 }
 

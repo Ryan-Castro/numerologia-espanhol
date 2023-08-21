@@ -1,5 +1,4 @@
 #subtitle{
-    position: fixed;
     width: 80vw;
     color: white;
     bottom: 50px;
@@ -8,11 +7,12 @@
     padding: 30px 70px;
     font-size: 20px;
     text-align: center;
+    position: relative;
     display: none;
 }
 #playAndStop{
     position: absolute;
-    top: -60px;
+    top: 5px;
     right: 10px;
     display: flex;
     z-index: 100;
@@ -25,8 +25,8 @@
 }
 #muteAndDesmute{
     position: absolute;
-    top: -60px;
-    right: 60px;
+    top: 5px;
+    right: 35px;
     display: flex;
     z-index: 100;
 }

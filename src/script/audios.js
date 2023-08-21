@@ -1,8 +1,9 @@
 function playPresentationDestiny(){
     $("#container1").style.display = "none"
     $("#container2").style.display = "flex"
-    document.querySelector("#analizingName").innerHTML = _name
-    document.querySelector("#analizingDate").innerHTML = `${dateBorn.d} / ${dateBorn.m} / ${dateBorn.y}`
+    $("#subtitle").style.display = "flex"
+    $("#analizingName").innerHTML = _name
+    $("#analizingDate").innerHTML = `${dateBorn.d} / ${dateBorn.m} / ${dateBorn.y}`
     audio.src = "./src/audios/presentationOnDestiny.mp3"
     audio.play()
     audio.addEventListener("ended", presDes)
@@ -10,7 +11,7 @@ function playPresentationDestiny(){
     audioFundo.volume = 0.15
     audioFundo.play()
     setAnalizingCalc()
-    //subtitle(subPresentationDestiny)
+    subtitle(subPresentationDestiny)
     function presDes(){
         presentationDestiny = true
         audio.removeEventListener("ended", presDes)
@@ -172,33 +173,31 @@ function playMotivation(){
 
 }
 function playEnded(){
+    $("#container1").style.display = "none"
+    $("#container2").style.display = "flex"
     audio.src = `./src/audios/end1.mp3`
-    document.querySelector("#secAnalizing").innerHTML = `
-    <h2 id="analizingName"></h2>
-    <img src="./src/images/analizeImg.png" alt="" class="imgSpin">
+    $("#container2").innerHTML = `
+        <img src="./src/images/capa-mapa.jpeg" alt="" class="imgFocus">
     `
-    document.querySelector("#analizingName").innerHTML = _fullName
     audio.play()
-    subtitle(subEnd[1])
+    //subtitle(subEnd[1])
     audio.addEventListener("ended", audio2)
     function audio2(){
-        document.querySelector("#secAnalizing").innerHTML = `
-        <img src="./src/images/capa-mapa.png" class="imgFocus">
-        `
         audio.removeEventListener("ended", audio2)
         audio.src = `./src/audios/end2.mp3`
         audio.play()
-        subtitle(subEnd[2])
+        //subtitle(subEnd[2])
         audio.addEventListener("ended", audio3)
     }
     function audio3(){
         audio.removeEventListener("ended", audio3)
         ended = true
-        showSec('secBuy')
+        $("#container2").style.display = "none"
+        $("#container4").style.display = "flex"
         audio.src = `./src/audios/end3.mp3`
         audio.play()
-        subtitle(subEnd[3])
-        audio.addEventListener("ended", endead)
+        //subtitle(subEnd[3])
+        //audio.addEventListener("ended", endead)
     }
     function endead(){
         document.querySelector("#subtitle").style.display = "none"

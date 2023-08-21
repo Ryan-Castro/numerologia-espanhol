@@ -151,6 +151,11 @@
 #separateName span:first-child{
     background-color: #FF1177;
 }
+.imgFocus{
+    height: 80vh;
+    margin-top: 50px;
+    animation: focus 3s linear infinite;
+}
 @media (max-width: 800px) {
     #container2{
         width: 100%;
