@@ -51,6 +51,7 @@
     border: none;
     border-radius: 10px;
     text-shadow: 1px 1px 3px black;
+    padding: 0px;
 }
 #container1 #inputsYears{
     width: 100%;

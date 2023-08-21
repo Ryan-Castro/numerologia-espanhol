@@ -7,7 +7,7 @@ function playPresentationDestiny(){
     audio.src = "./src/audios/presentationOnDestiny.mp3"
     audio.play()
     audio.addEventListener("ended", presDes)
-    audio.addEventListener("timeupdate", PresentationDestinyAnimation)
+    //audio.addEventListener("timeupdate", PresentationDestinyAnimation)
     audioFundo.volume = 0.15
     audioFundo.play()
     setAnalizingCalc()
@@ -15,7 +15,7 @@ function playPresentationDestiny(){
     function presDes(){
         presentationDestiny = true
         audio.removeEventListener("ended", presDes)
-        audio.removeEventListener("timeupdate", PresentationDestinyAnimation)
+        //audio.removeEventListener("timeupdate", PresentationDestinyAnimation)
         starAnalyzing()
     }
     
