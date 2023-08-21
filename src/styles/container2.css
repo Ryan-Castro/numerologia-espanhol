@@ -177,7 +177,7 @@
 }
 @media (max-width: 450px) {
     #container2{
-        margin-top: -200px;
+        margin-top: -150px;
         transform: scale(0.45);
     }
 
