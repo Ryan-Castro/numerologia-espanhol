@@ -11,7 +11,7 @@ function playPresentationDestiny(){
     audioFundo.volume = 0.15
     audioFundo.play()
     setAnalizingCalc()
-    subtitle(subPresentationDestiny)
+    //subtitle(subPresentationDestiny)
     function presDes(){
         presentationDestiny = true
         audio.removeEventListener("ended", presDes)
