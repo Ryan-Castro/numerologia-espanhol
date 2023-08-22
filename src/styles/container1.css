@@ -94,7 +94,7 @@
     width: 50%;
     padding: 10px;
 }
-#divStart button{
+#divStart input[type=button]{
     margin: 50px;
     background: #008000d3;
     padding: 10px 55px;

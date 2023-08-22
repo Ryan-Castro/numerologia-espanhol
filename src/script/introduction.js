@@ -155,7 +155,7 @@ function setLayoutName(){
     <div id="divStart">
         <h4>Tu primer nombre</h4>
         <input type="text"  placeholder="Nombre" id="inputName">
-        <button onclick="starAnalyzing()">Comenzar</button>
+        <input type="button" onclick="starAnalyzing()" value="Comenzar"/>
     </div>
     `    
 }
