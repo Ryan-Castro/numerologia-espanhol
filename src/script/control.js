@@ -8,6 +8,7 @@ let introductionExpression = false
 let introductionMotivation = false
 let ended = false
 let load = false
+alert("teste 1")
 
 function starAnalyzing() {
     if(!presentationDestiny){
@@ -16,12 +17,7 @@ function starAnalyzing() {
             alert("escriba su nombre")
             return
         }
-        $("#containerLoad").style.display = "flex"
-        setTimeout(() => {
-            $("#containerLoad").style.display = "none"
-            playPresentationDestiny()
-            return
-        }, 3000)
+        playPresentationDestiny()
         return
     }
     if(!destiny){
