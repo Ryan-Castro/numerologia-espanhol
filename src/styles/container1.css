@@ -32,6 +32,9 @@
     border: none;
     border-radius: 10px;
     text-shadow: 1px 1px 3px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #container1 #inputsDays{
     width: 100%;
