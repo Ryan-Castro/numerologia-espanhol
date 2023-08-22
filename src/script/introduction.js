@@ -103,6 +103,7 @@ function setYear(year){
     dateBorn.y = year
     let yearSumText = `${year[0]}+${year[1]}+${year[2]}+${year[3]}`
     let yearSumNumber = (Number(year[0]) + Number(year[1]) + Number(year[2]) + Number(year[3]))
+    let subLoad = false
     sumDate.y = yearSumNumber
     if(yearSumNumber>9){
         yearSumNumber = `${yearSumNumber.toString()[0]} + ${yearSumNumber.toString()[1]}`
@@ -132,10 +133,12 @@ function setYear(year){
     sumDestiny = Number(sumDate.d) + Number(sumDate.m) + Number(sumDate.y)
     if(sumDestiny>9 && sumDestiny != 11 && sumDestiny != 22){
         sumDestiny = `${sumDestiny.toString()[0]} + ${sumDestiny.toString()[1]}`
+        subLoad = true
         setTimeout(() => {
             $("#tableBorn").children[2].children[6].innerHTML = `<div><span>${(Number(sumDestiny[0]) + Number(sumDestiny[4]))}</span></div>`
             $("#tableBorn").children[2].children[6].children[0].style.paddingTop =  "0px"
-            let load = true
+            load = true
+            $("#btnContinue").style.backgroundColor = "#008000d3"
         }, 5000)
     }
     setTimeout(() => {
@@ -145,7 +148,11 @@ function setYear(year){
         `
         $("#tableBorn").children[2].children[5].style.opacity = 1
         $("#tableBorn").children[2].children[6].style.opacity = 1
-        $("#tableBorn").children[2].children[6].children[0].style.paddingTop = "0px"     
+        $("#tableBorn").children[2].children[6].children[0].style.paddingTop = "0px"   
+        if(!subLoad){
+            load = true  
+            $("#btnContinue").style.backgroundColor = "#008000d3"
+        }
     }, 4000)
     setLayoutName()
 }
@@ -155,7 +162,7 @@ function setLayoutName(){
     <div id="divStart">
         <h4>Tu primer nombre</h4>
         <input type="text"  placeholder="Nombre" id="inputName">
-        <input type="button" onclick="starAnalyzing()" value="Comenzar"/>
+        <input type="button" onclick="starAnalyzing()" value="Comenzar" id="btnContinue"/>
     </div>
     `    
 }

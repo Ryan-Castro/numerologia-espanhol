@@ -43,7 +43,7 @@ function calcMotivation(){
 function synthesizeNumber(number){
     let baseNum = Number(number)
     while (baseNum>9) {
-        if(baseNum == 11 || baseNum == 22){
+        if(baseNum == 11){
             return baseNum
         }
         let baseSum = 0

@@ -18,8 +18,8 @@
     font-weight: 300;
     display: flex;
     align-items: center;
-    color: aqua;
     justify-content: space-between;
+    color: aqua;
 }
 #container3 .titleInput span{
     white-space: nowrap;
@@ -29,7 +29,6 @@
     width: 20px;
     height: 20px;
     margin-right: 0px !important;
-    float: right;
     color: black;
     background-color: aqua;
     border-radius: 50%;
@@ -39,6 +38,7 @@
     width: 120px;
     height: 1px;
     border-color: aqua;
+    display: flex;
 }
 #container3 select{
     width: 100%;
@@ -51,7 +51,7 @@
     margin-top: 15px;
 }
 #container3 button{
-    width: 300px;
+    width: 290px;
     padding: 7px;
     margin-top: 15px;
     background-color: rgb(158 41 122);
@@ -59,4 +59,61 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     border: 2px solid rgb(85, 10, 62);
+}
+@media (max-width: 1200px){
+    #container3{
+        width: 850px;
+    }
+    #container3>div{
+        width: 800px;
+    }
+    #container3 .titleInput hr{
+        width: 80px;
+    }
+} 
+@media (max-width: 950px){
+    #container3{
+        width: 780px;
+    }
+    #container3>div{
+        width: 750px;
+    }
+    #container3 .titleInput hr{
+        width: 50px;
+    }
+} 
+@media (max-width: 800px){
+    #container3{
+        width: 100%;
+    }
+    #container3>div{
+        width: 90%;
+        flex-direction: column;
+    }
+    #container3 .titleInput hr{
+        width: 630px;
+    }
+}
+@media (max-width: 700px){
+    #container3 .titleInput hr{
+        width: 530px;
+    }
+}
+@media (max-width: 600px){
+    #container3 .titleInput hr{
+        width: 440px;
+    }
+    #container3 p{
+        font-size: 16px;
+    }
+}
+@media (max-width: 500px){
+    #container3 .titleInput hr{
+        width: 340px;
+    }
+}
+@media (max-width: 400px){
+    #container3 .titleInput hr{
+        width: 250px;
+    }
 }

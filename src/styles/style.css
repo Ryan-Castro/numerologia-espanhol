@@ -32,7 +32,7 @@ section#inputs{
 }
 main > section{
     width: 1170px;
-    min-height: 80vh;
+    min-height: 90vh;
     font-family: 'Montserrat', sans-serif;
     color: white;
     display: flex;
@@ -78,6 +78,7 @@ main > section > h2{
     position: absolute;
     animation: spin 4s linear infinite;
 }
+
 @media (max-width: 600px){
     #containerLoad>div{
         transform: scale(0.8);

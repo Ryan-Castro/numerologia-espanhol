@@ -1,48 +1,33 @@
-let presentationDestiny = false
 let presentationExpression = false
 let presentationMotivation = false
 let destiny = false
 let expression = false
 let motivarion = false
-let introductionExpression = false
 let introductionMotivation = false
 let ended = false
 let load = false
-alert("teste 1")
 
 function starAnalyzing() {
-    if(!presentationDestiny){
+    if(!destiny){
         _name = document.querySelector("#inputName").value
         if(_name == ""){
             alert("escriba su nombre")
             return
         }
-        playPresentationDestiny()
-        return
-    }
-    if(!destiny){
+        if(!load){
+            alert("Espere terminar o carregamento")
+            return
+        }
         playDestiny()
         return
     }
-    if(!introductionExpression){
-        playIntroductionExpression()
-        return
-    }
-    if(!presentationExpression){
+    if(!expression){
         _fullName = document.querySelector("#inputFullName").value
         if(_fullName == ""){
             alert("escriba su nombre")
             return
         }
-        playPresentationExpression()
-        return
-    }
-    if(!expression){
         playExpression()
-        return
-    }
-    if(!introductionMotivation){
-        playintroductionMotivation()
         return
     }
     if(!presentationMotivation){

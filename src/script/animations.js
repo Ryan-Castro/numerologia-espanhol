@@ -1,6 +1,6 @@
 let firstPhase = false
 let timeBase = 0
-let controlerImg = {
+let controlerDestiny = {
     0:false,
     1:false,
     2:false,
@@ -12,89 +12,17 @@ let controlerImg = {
     8:false,
     9:false
 }
-function PresentationDestinyAnimation(){
-    let timeAudio = audio.currentTime.toFixed(2)
-    let _Ref = $("#analizingCalc")
-    function showSpan(column, row){
-        _Ref.children[column].children[row].style.opacity = 1
-        if(_Ref.children[column].children[row].className == "info"){
-            _Ref.children[column].children[row].children[0].style.paddingTop = "0px"
-        }
-    }
-    if(timeAudio>55 && !firstPhase){
-        timeBase = 55
-        setAnalizingCalc()
-        firstPhase = true
-    }
-    if(timeAudio>(1 + timeBase) && timeAudio<(2 + timeBase)){
-        showSpan(0, 0)
-    }
-    if(timeAudio>(2 + timeBase) && timeAudio<(3 + timeBase)){
-        showSpan(0, 1)
-        showSpan(0, 2)
-    }
-    if(timeAudio>(3 + timeBase) && timeAudio<(4 + timeBase)){
-        showSpan(0, 3)
-        showSpan(0, 4)
-        showSpan(1, 1)
-    }
-    if(timeAudio>(4+ timeBase) && timeAudio<(5 + timeBase)){
-        showSpan(2, 0)
-    }
-    if(timeAudio>(5+ timeBase) && timeAudio<(6 + timeBase)){
-        showSpan(2, 1)
-        showSpan(2, 2)
-    }
-    if(timeAudio>(6+ timeBase) && timeAudio<(7 + timeBase)){
-        showSpan(2, 3)
-        showSpan(2, 4)
-        showSpan(3, 1)
-    }
-    if(timeAudio>(7+ timeBase) && timeAudio<(8 + timeBase)){
-        showSpan(4, 0)
-    }
-    if(timeAudio>(8+ timeBase) && timeAudio<(9 + timeBase)){
-        showSpan(4, 1)
-        showSpan(4, 2)
-    }
-    if(timeAudio>(9+ timeBase) && timeAudio<(10 + timeBase)){
-        showSpan(4, 3)
-        showSpan(4, 4)
-    }
-    if(timeAudio>(10+ timeBase) && timeAudio<(12 + timeBase)){
-        showSpan(2, 5)
-        showSpan(2, 6)
-    }
-    if(timeAudio>(10+ timeBase) && timeAudio<(12 + timeBase)){
-        showSpan(2, 5)
-        showSpan(2, 6)
-    }
-    if(timeAudio>42){
-        if(!controlerImg[0]){
-            controlerImg[0] = true
-            $("#analizingName").innerHTML = ""
-            $("#analizingDate").innerHTML = ""
-            insertImage(0, 0, "¿cuáles son tus habilidades y fortalezas?")
-        }
-    }
-    if(timeAudio>46){
-        if(!controlerImg[1]){
-            controlerImg[1] = true
-            insertImage(0, 1, "¿Cuál es tu misión en esta vida?")
-        }
-    }
-    if(timeAudio>48){
-        if(!controlerImg[2]){
-            controlerImg[2] = true
-            insertImage(0, 2, "¿Qué oportunidades te reserva el futuro?")
-        }
-    }
-    if(timeAudio>52){
-        if(!controlerImg[3]){
-            controlerImg[3] = true
-            insertImage(0, 3, "¿Qué percepción transmites a los demás?")
-        }
-    }
+let controlerExpression = {
+    0:false,
+    1:false,
+    2:false,
+    3:false,
+    4:false,
+    5:false,
+    6:false,
+    7:false,
+    8:false,
+    9:false
 }
 function destinyAnimation(){
     let timeAudio = audio.currentTime.toFixed(2)
@@ -102,33 +30,66 @@ function destinyAnimation(){
     if(numberDestinyBase > 9 && numberDestinyBase != 11 && numberDestinyBase != 22){
         numberDestinyBase = Number(numberDestinyBase.toString()[0]) + Number(numberDestinyBase.toString()[1])
     }
-    if(timeAudio>4){
-        if(!controlerImg[4]){
-            controlerImg[4] = true
-            insertNumber(numberDestinyBase)
-        }
+    if(timeAudio> 1 && timeAudio<15){
+        showTable(timeAudio, 0)
     }
-}
-function IntroductionExpressionAnimation(){
-    let timeAudio = audio.currentTime.toFixed(2)
-    if(timeAudio>62 && !controlerImg[5]){
+    if(timeAudio>50 && !controlerDestiny[0]){
+        controlerDestiny[0] = true
+        $("#analizingName").innerHTML = ""
+        $("#analizingDate").innerHTML = ""
+        insertImage(0, 0, "Número del destino")
+    }
+    if(timeAudio>52 && !controlerDestiny[1]){
+        controlerDestiny[1] = true
+        insertImage(0, 1, "Número del aprendizaje")
+    }
+    if(timeAudio>53 && !controlerDestiny[2]){
+        controlerDestiny[2] = true
+        insertImage(0, 2, "Número del alma")
+    }
+    if(timeAudio>55 && !controlerDestiny[3]){
+        controlerDestiny[3] = true
+        insertImage(0, 3, "Número de la expresión")
+    }
+    if(timeAudio>57 && !controlerDestiny[4]){
+        controlerDestiny[4] = true
+        insertImage(0, 4, "número de la personalidad")
+    }
+    if(timeAudio>60 && !firstPhase){
+        setAnalizingCalc()
+        firstPhase = true
+    }
+    if(timeAudio> 60 && timeAudio<75){
+        showTable(timeAudio, 60)
+    }
+    if(timeAudio>112 && !controlerDestiny[5]){
+        controlerDestiny[5] = true
+        insertImage(0, 0, `Tu número del destino es el: ${numberDestinyBase}`)
+    }
+    if(timeAudio>117 && !controlerDestiny[6]){
+        controlerDestiny[6] = true
+        insertNumber(numberDestinyBase)
+    }
+    if(timeAudio>210 && !controlerDestiny[7]){
         analizeExpression(_name, false)
-        controlerImg[5] = true
-    }
-}
-function presentationExpressionAnimation(){
-    let timeAudio = audio.currentTime.toFixed(2)
-    if(timeAudio>20 && !controlerImg[6]){
-        analizeExpression(_fullName, true)
-        controlerImg[6] = true
+        controlerDestiny[7] = true
     }
 }
 function expressionAnimation(){
     let timeAudio = audio.currentTime.toFixed(2)
     let numberExpression = calcExpression()
-    if(timeAudio>10 && !controlerImg[7]){
+    if(timeAudio>20 && !controlerExpression[0]){
+        analizeExpression(_fullName, true)
+        controlerExpression[0] = true
+    }
+    if(timeAudio>56 && !controlerExpression[1]){
         insertNumber(numberExpression)
-        controlerImg[7] = true
+        controlerExpression[1] = true
+    }
+    if(timeAudio>160 && !controlerExpression[2]){
+        $("#container2").style.display = "none"
+        $("#container3").style.display = "flex"
+        controlerExpression[2] = true
     }
 }
 function presentationMotivationAnimation(){
@@ -150,7 +111,7 @@ function motivationAnimation(){
 }
 function insertImage(bg, image, text){
     let bgImg = ["border-bg.png", "mandala-bg.png"]
-    let images = ["sign-expression-bg.png","sign-lifepath-bg.webp","sign-personality-bg.png","sign-soulurge-bg.png"]
+    let images = ["sign-expression-bg.png","sign-lifepath-bg.webp","sign-personality-bg.png","sign-soulurge-bg.png", "melhorcaminho.png"]
     $("#container2").innerHTML = "<div id='analizingDiv'></div>"
     $("#analizingDiv").innerHTML = `
     <div id="DivImage">
@@ -366,4 +327,56 @@ function analizeMotivation(text, comlet){
             }
     }, index * 700);
     });
+}
+function showTable(timeAudio, timeBase){
+    let _Ref = $("#analizingCalc")
+    function showSpan(column, row){
+        _Ref.children[column].children[row].style.opacity = 1
+        if(_Ref.children[column].children[row].className == "info"){
+            _Ref.children[column].children[row].children[0].style.paddingTop = "0px"
+        }
+    }
+    if(timeAudio>(1 + timeBase) && timeAudio<(2 + timeBase)){
+        showSpan(0, 0)
+    }
+    if(timeAudio>(2 + timeBase) && timeAudio<(3 + timeBase)){
+        showSpan(0, 1)
+        showSpan(0, 2)
+    }
+    if(timeAudio>(3 + timeBase) && timeAudio<(4 + timeBase)){
+        showSpan(0, 3)
+        showSpan(0, 4)
+        showSpan(1, 1)
+    }
+    if(timeAudio>(4 + timeBase) && timeAudio<(5 + timeBase)){
+        showSpan(2, 0)
+    }
+    if(timeAudio>(5 + timeBase) && timeAudio<(6 + timeBase)){
+        showSpan(2, 1)
+        showSpan(2, 2)
+    }
+    if(timeAudio>(6 + timeBase) && timeAudio<(7 + timeBase)){
+        showSpan(2, 3)
+        showSpan(2, 4)
+        showSpan(3, 1)
+    }
+    if(timeAudio>(7 + timeBase) && timeAudio<(8 + timeBase)){
+        showSpan(4, 0)
+    }
+    if(timeAudio>(8 + timeBase) && timeAudio<(9 + timeBase)){
+        showSpan(4, 1)
+        showSpan(4, 2)
+    }
+    if(timeAudio>(9+ timeBase) && timeAudio<(10 + timeBase)){
+        showSpan(4, 3)
+        showSpan(4, 4)
+    }
+    if(timeAudio>(10 + timeBase) && timeAudio<(11 + timeBase)){
+        showSpan(2, 5)
+        showSpan(2, 6)
+    }
+    if(timeAudio>(11 + timeBase) && timeAudio<(12 + timeBase)){
+        showSpan(2, 5)
+        showSpan(2, 6)
+    }
 }

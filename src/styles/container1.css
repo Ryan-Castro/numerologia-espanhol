@@ -99,7 +99,8 @@
 }
 #divStart input[type=button]{
     margin: 50px;
-    background: #008000d3;
+    background-color: gray;
+    /* background: #008000d3; */
     padding: 10px 55px;
     color: #ffffff;
     text-shadow: 1px 2px 3px black;

@@ -1,98 +1,43 @@
-function playPresentationDestiny(){
+function playDestiny(){
     $("#container1").style.display = "none"
     $("#container2").style.display = "flex"
-    $("#subtitle").style.display = "flex"
+    $("#container5").style.display = "flex"
+    //$("#subtitle").style.display = "flex"
     $("#analizingName").innerHTML = _name
     $("#analizingDate").innerHTML = `${dateBorn.d} / ${dateBorn.m} / ${dateBorn.y}`
-    audio.src = "./src/audios/presentationOnDestiny.mp3"
-    audio.play()
-    audio.addEventListener("ended", presDes)
-    audio.addEventListener("timeupdate", PresentationDestinyAnimation)
-    audioFundo.volume = 0.15
-    audioFundo.play()
-    setAnalizingCalc()
-    subtitle(subPresentationDestiny)
-    function presDes(){
-        presentationDestiny = true
-        audio.removeEventListener("ended", presDes)
-        audio.removeEventListener("timeupdate", PresentationDestinyAnimation)
-        starAnalyzing()
-    }
-    
-}
-function playDestiny(){
     let numberDestiny = Number(sumDate.d) + Number(sumDate.m) + Number(sumDate.y)
     if(numberDestiny > 9 && numberDestiny != 11 && numberDestiny != 22){
         numberDestiny = Number(numberDestiny.toString()[0]) + Number(numberDestiny.toString()[1])
     }
-    insertImage(0, 0, `Tu número de destino es: ${numberDestiny}`)
-    audio.src = `./src/audios/destiny/destino${numberDestiny}.mp3`
+    audio.src = `./src/audios/destiny/${numberDestiny}.mp3`
     audio.play()
-    audio.addEventListener("ended", Dest)
+    audio.addEventListener("ended", presDes)
     audio.addEventListener("timeupdate", destinyAnimation)
-    //subtitle(subDestiny[numberDestiny])
-    function Dest(){
-        destiny = true
-        audio.removeEventListener("timeupdate", destinyAnimation)
-        audio.removeEventListener("ended", Dest)
-        starAnalyzing()
-    }
-}
-function playIntroductionExpression(){
-    audio.src = `./src/audios/introductionExpression.mp3`
-    audio.play()
-    //subtitle(subIntroductionExpression)
-    audio.addEventListener("ended", intExpre)
-    audio.addEventListener("timeupdate", IntroductionExpressionAnimation)
-    function intExpre(){
-        introductionExpression = true
+    audioFundo.volume = 0.15
+    audioFundo.play()
+    setAnalizingCalc()
+    //subtitle(subPresentationDestiny)
+    function presDes(){
+        $_destiny = true
         $("#container2").style.display = "none"
         $("#container3").style.display = "flex"
-        //$("#subtitle").style.display = "none"
-        audio.removeEventListener("ended", intExpre)   
-        audio.removeEventListener("timeupdate", IntroductionExpressionAnimation)
-    }
-}
-function playPresentationExpression(){
-    $("#container3").style.display = "none"
-    $("#container2").style.display = "flex"
-    //$("#subtitle").style.display = "flex"
-    insertImage(0, 1, _fullName)
-    audio.src = "./src/audios/presentationExpression.mp3"
-    audio.play()
-    //subtitle(subPresentatiExpression)
-    audio.addEventListener("ended", presExprex)
-    audio.addEventListener("timeupdate", presentationExpressionAnimation)
-    function presExprex(){
-        presentationExpression = true
-        audio.removeEventListener("ended", presExprex)
-        audio.removeEventListener("timeupdate", presentationExpressionAnimation)
-        starAnalyzing()
-    }
-
+        $("#subtitle").style.display = "none"
+        audio.removeEventListener("ended", presDes)
+        audio.removeEventListener("timeupdate", destinyAnimation)
+    }   
 }
 function playExpression(){
+    $("#container3").style.display = "none"
+    $("#container2").style.display = "flex"
     let numberExpression = calcExpression()
-    insertImage(0, 0, `Tu número de expression es: ${numberExpression}`)
-    audio.src = `./src/audios/expression/expressao${numberExpression}.mp3`
+    insertImage(0, 1, _fullName)
+    audio.src = `./src/audios/expression/${numberExpression}.mp3`
     audio.play()
     //subtitle(subExpression[numberExpression])
     audio.addEventListener("ended", expres)
     audio.addEventListener("timeupdate", expressionAnimation)
     function expres(){
-        expression = true
-        audio.removeEventListener("ended", expres)
-        audio.removeEventListener("timeupdate", expressionAnimation)
-        starAnalyzing()
-    }
-}
-function playintroductionMotivation(){
-    audio.src = `./src/audios/introductionMotivation.mp3`
-    audio.play()
-    //subtitle(subIntroductionMotication)
-    audio.addEventListener("ended", intMot)
-    insertImage(0, 2, "número de motivación")
-    $("#container3").innerHTML = `
+        $("#container3").innerHTML = `
         <div>
             <p>Para obtener tu lectura personalizada gratuita de motivación, completa la información a continuación...</p>
         </div>
@@ -131,13 +76,10 @@ function playintroductionMotivation(){
                 <button onclick="starAnalyzing()">continuar con lectura</button>
             </div>
         </div>
-    `
-    function intMot(){
-        introductionMotivation = true
-        $("#container2").style.display = "none"
-        $("#container3").style.display = "flex"
-        //$("#subtitle").style.display = "none"
-        audio.removeEventListener("ended", intMot)
+        `
+        expression = true
+        audio.removeEventListener("ended", expres)
+        audio.removeEventListener("timeupdate", expressionAnimation)
     }
 }
 function playPresentetionMotivation(){
