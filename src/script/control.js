@@ -1,14 +1,14 @@
 let presentationExpression = false
 let presentationMotivation = false
 let $_destiny = false
-let expression = false
+let $_expression = false
 let motivarion = false
 let introductionMotivation = false
 let ended = false
 let load = false
 
 function starAnalyzing() {
-    if(!_destiny){
+    if(!$_destiny){
         _name = document.querySelector("#inputName").value
         if(_name == ""){
             alert("escriba su nombre")
