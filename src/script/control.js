@@ -1,4 +1,3 @@
-let selectedName = false
 let presentationDestiny = false
 let presentationExpression = false
 let presentationMotivation = false
@@ -11,17 +10,12 @@ let ended = false
 let load = false
 
 function starAnalyzing() {
-    if(!selectedName){
+    if(!presentationDestiny){
         _name = document.querySelector("#inputName").value
         if(_name == ""){
             alert("escriba su nombre")
             return
         }
-        selectedName = true
-        starAnalyzing()
-        return
-    }
-    if(!presentationDestiny){
         $("#containerLoad").style.display = "none"
         playPresentationDestiny()
         return
