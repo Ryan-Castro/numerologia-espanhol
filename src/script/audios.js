@@ -10,7 +10,7 @@ function playPresentationDestiny(){
     //audio.addEventListener("timeupdate", PresentationDestinyAnimation)
     audioFundo.volume = 0.15
     audioFundo.play()
-    setAnalizingCalc()
+    //setAnalizingCalc()
     //subtitle(subPresentationDestiny)
     function presDes(){
         presentationDestiny = true

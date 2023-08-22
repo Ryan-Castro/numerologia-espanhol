@@ -74,6 +74,9 @@
     border: none;
     border-radius: 10px;
     text-shadow: 1px 1px 3px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #container1 #divStart{
     margin-top: 30px;
