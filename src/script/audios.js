@@ -4,7 +4,7 @@ function playPresentationDestiny(){
     $("#subtitle").style.display = "flex"
     $("#analizingName").innerHTML = _name
     $("#analizingDate").innerHTML = `${dateBorn.d} / ${dateBorn.m} / ${dateBorn.y}`
-    audio.src = "./src/audios/presentationOnDestiny.mp3"
+    audio.src = "https://ryan-castro.github.io/numerologia-espanhol/src/audios/presentationOnDestiny.mp3"
     audio.play()
     //audio.addEventListener("ended", presDes)
     //audio.addEventListener("timeupdate", PresentationDestinyAnimation)
