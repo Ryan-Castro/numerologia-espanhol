@@ -52,6 +52,9 @@
     border-radius: 10px;
     text-shadow: 1px 1px 3px black;
     padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #container1 #inputsYears{
     width: 100%;
