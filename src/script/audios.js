@@ -4,18 +4,18 @@ function playPresentationDestiny(){
     $("#subtitle").style.display = "flex"
     $("#analizingName").innerHTML = _name
     $("#analizingDate").innerHTML = `${dateBorn.d} / ${dateBorn.m} / ${dateBorn.y}`
-    audio.src = "https://ryan-castro.github.io/numerologia-espanhol/src/audios/presentationOnDestiny.mp3"
+    audio.src = "./src/audios/presentationOnDestiny.mp3"
     audio.play()
-    //audio.addEventListener("ended", presDes)
-    //audio.addEventListener("timeupdate", PresentationDestinyAnimation)
-    //audioFundo.volume = 0.15
-    //audioFundo.play()
-    //setAnalizingCalc()
-    //subtitle(subPresentationDestiny)
+    audio.addEventListener("ended", presDes)
+    audio.addEventListener("timeupdate", PresentationDestinyAnimation)
+    audioFundo.volume = 0.15
+    audioFundo.play()
+    setAnalizingCalc()
+    subtitle(subPresentationDestiny)
     function presDes(){
         presentationDestiny = true
         audio.removeEventListener("ended", presDes)
-        //audio.removeEventListener("timeupdate", PresentationDestinyAnimation)
+        audio.removeEventListener("timeupdate", PresentationDestinyAnimation)
         starAnalyzing()
     }
     

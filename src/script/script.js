@@ -6,7 +6,6 @@ let months = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Ago
 let dateBorn = {d: "", m: "", y:""}
 let sumDate = {d: "", m: "", y:""}
 let sumDestiny = 0
-alert("teste: 4")
 
 
 function $(element){

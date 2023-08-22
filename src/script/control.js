@@ -16,8 +16,12 @@ function starAnalyzing() {
             alert("escriba su nombre")
             return
         }
-        $("#containerLoad").style.display = "none"
-        playPresentationDestiny()
+        $("#containerLoad").style.display = "flex"
+        setTimeout(() => {
+            $("#containerLoad").style.display = "none"
+            playPresentationDestiny()
+            return
+        }, 3000)
         return
     }
     if(!destiny){
