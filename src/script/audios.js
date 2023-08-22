@@ -77,7 +77,7 @@ function playExpression(){
             </div>
         </div>
         `
-        expression = true
+        $_expression = true
         audio.removeEventListener("ended", expres)
         audio.removeEventListener("timeupdate", expressionAnimation)
     }
