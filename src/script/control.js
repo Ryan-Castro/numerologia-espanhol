@@ -22,12 +22,8 @@ function starAnalyzing() {
         return
     }
     if(!presentationDestiny){
-        $("#containerLoad").style.display = "flex"
-        setTimeout(() => {
-            $("#containerLoad").style.display = "none"
-            playPresentationDestiny()
-            return
-        }, 3000)
+        $("#containerLoad").style.display = "none"
+        playPresentationDestiny()
         return
     }
     if(!destiny){
