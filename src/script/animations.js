@@ -278,14 +278,14 @@ function analizeExpression(text, comlet){
         setTimeout(() => {
             for(i of $("#tableCabalist").children[0].children){
                 if(i.id.indexOf(element) != -1 && i.id != "header"){
-                    i.children[(tableCabalistic[element] - 1)].className = "active"
+                    i.children[(tableCabalistic[element.toLocaleLowerCase()] - 1)].className = "active"
                 }
                 
             }
             if(comlet){
                 if(element != " "){
                     $("#separateName").innerHTML +=`
-                        <div><span>${element}</span><span>${(tableCabalistic[element])}</span></div>
+                        <div><span>${element}</span><span>${(tableCabalistic[element.toLocaleLowerCase()])}</span></div>
                     `
                 } else {
                     $("#separateName").innerHTML +=`
@@ -302,20 +302,21 @@ function analizeMotivation(text, comlet){
     $("#separateName").innerHTML = ""
 
     textArrey.forEach((element, index) => {
+        let letter = element.toLocaleLowerCase()
         setTimeout(() => {
             for(i of $("#tableCabalist").children[0].children){
-                if(i.id.indexOf(element) != -1 && i.id != "header"){
-                    if(element == "a" || element == "e" || element == "i" || element == "o" || element == "u"){
-                        i.children[(tableCabalistic[element] - 1)].className = "active"
+                if(i.id.indexOf(letter) != -1 && i.id != "header"){
+                    if(letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u"){
+                        i.children[(tableCabalistic[letter] - 1)].className = "active"
                     }
                 }
                 
             }
             if(comlet){
-                if(element != " "){
+                if(letter != " "){
                     let content = `<div><span>${element}</span>`
-                    if(element == "a" || element == "e" || element == "i" || element == "o" || element == "u"){
-                        content += `<span>${(tableCabalistic[element])}</span>`
+                    if(letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u"){
+                        content += `<span>${(tableCabalistic[letter])}</span>`
                     }
                     content += `</div>`
                     $("#separateName").innerHTML += content

@@ -33,11 +33,7 @@ function playExpression(){
     insertImage(0, 1, _fullName)
     audio.src = `./src/audios/expression/${numberExpression}.mp3`
     audio.play()
-    //subtitle(subExpression[numberExpression])
-    audio.addEventListener("ended", expres)
-    audio.addEventListener("timeupdate", expressionAnimation)
-    function expres(){
-        $("#container3").innerHTML = `
+    $("#container3").innerHTML = `
         <div>
             <p>Para obtener tu lectura personalizada gratuita de motivación, completa la información a continuación...</p>
         </div>
@@ -77,6 +73,10 @@ function playExpression(){
             </div>
         </div>
         `
+    //subtitle(subExpression[numberExpression])
+    audio.addEventListener("ended", expres)
+    audio.addEventListener("timeupdate", expressionAnimation)
+    function expres(){
         $_expression = true
         audio.removeEventListener("ended", expres)
         audio.removeEventListener("timeupdate", expressionAnimation)
