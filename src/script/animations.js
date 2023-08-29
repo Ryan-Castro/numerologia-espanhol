@@ -24,35 +24,42 @@ let controlerExpression = {
     8:false,
     9:false
 }
-function destinyAnimation(){
+
+
+
+function initDestinyAnimation(){
     let timeAudio = audio.currentTime.toFixed(2)
-    let numberDestinyBase = Number(sumDate.d) + Number(sumDate.m) + Number(sumDate.y)
-    if(numberDestinyBase > 9 && numberDestinyBase != 11 && numberDestinyBase != 22){
-        numberDestinyBase = Number(numberDestinyBase.toString()[0]) + Number(numberDestinyBase.toString()[1])
-    }
     if(timeAudio> 1 && timeAudio<15){
         showTable(timeAudio, 0)
     }
-    if(timeAudio>50 && !controlerDestiny[0]){
+    if(timeAudio>25 && !controlerDestiny[0]){
         controlerDestiny[0] = true
         $("#analizingName").innerHTML = ""
         $("#analizingDate").innerHTML = ""
+        insertImage(1, 5, "")
+    }
+    if(timeAudio>30 && !controlerDestiny[1]){
+        controlerDestiny[1] = true
+        insertImage(1, 6, "")
+    }
+    if(timeAudio>50 && !controlerDestiny[2]){
+        controlerDestiny[2] = true
         insertImage(0, 0, "Número del destino")
     }
-    if(timeAudio>52 && !controlerDestiny[1]){
-        controlerDestiny[1] = true
+    if(timeAudio>52 && !controlerDestiny[3]){
+        controlerDestiny[3] = true
         insertImage(0, 1, "Número del aprendizaje")
     }
-    if(timeAudio>53 && !controlerDestiny[2]){
-        controlerDestiny[2] = true
+    if(timeAudio>53 && !controlerDestiny[4]){
+        controlerDestiny[4] = true
         insertImage(0, 2, "Número del alma")
     }
-    if(timeAudio>55 && !controlerDestiny[3]){
-        controlerDestiny[3] = true
+    if(timeAudio>55 && !controlerDestiny[5]){
+        controlerDestiny[5] = true
         insertImage(0, 3, "Número de la expresión")
     }
-    if(timeAudio>57 && !controlerDestiny[4]){
-        controlerDestiny[4] = true
+    if(timeAudio>57 && !controlerDestiny[6]){
+        controlerDestiny[6] = true
         insertImage(0, 4, "número de la personalidad")
     }
     if(timeAudio>60 && !firstPhase){
@@ -62,37 +69,58 @@ function destinyAnimation(){
     if(timeAudio> 60 && timeAudio<75){
         showTable(timeAudio, 60)
     }
-    if(timeAudio>112 && !controlerDestiny[5]){
-        controlerDestiny[5] = true
+}
+function destinyAnimation(){
+    let timeAudio = audio.currentTime.toFixed(2)
+    let numberDestinyBase = Number(sumDate.d) + Number(sumDate.m) + Number(sumDate.y)
+    if(numberDestinyBase > 9 && numberDestinyBase != 11 && numberDestinyBase != 22){
+        numberDestinyBase = Number(numberDestinyBase.toString()[0]) + Number(numberDestinyBase.toString()[1])
+    }
+    if(timeAudio>1 && !controlerDestiny[7]){
+        controlerDestiny[7] = true
         insertImage(0, 0, `Tu número del destino es el: ${numberDestinyBase}`)
     }
-    if(timeAudio>117 && !controlerDestiny[6]){
-        controlerDestiny[6] = true
+    if(timeAudio>20 && !controlerDestiny[8]){
+        controlerDestiny[8] = true
         insertNumber(numberDestinyBase)
     }
-    if(timeAudio>210 && !controlerDestiny[7]){
+}
+function endDestinyAnimation(){
+    let timeAudio = audio.currentTime.toFixed(2)
+    if(timeAudio>20 && !controlerDestiny[9]){
         analizeExpression(_name, false)
-        controlerDestiny[7] = true
+        controlerDestiny[9] = true
+    }
+}
+
+
+function initExpressionAnimation(){
+    let timeAudio = audio.currentTime.toFixed(2)
+    if(timeAudio>20 && !controlerExpression[0]){
+        analizeExpression(_fullName, true)
+        controlerExpression[0] = true
     }
 }
 function expressionAnimation(){
     let timeAudio = audio.currentTime.toFixed(2)
     let numberExpression = calcExpression()
-    if(timeAudio>20 && !controlerExpression[0]){
-        analizeExpression(_fullName, true)
-        controlerExpression[0] = true
-    }
-    if(timeAudio>56 && !controlerExpression[1]){
+    if(timeAudio>5 && !controlerExpression[1]){
         insertNumber(numberExpression)
         controlerExpression[1] = true
     }
-    if(timeAudio>160 && !controlerExpression[2]){
+
+}
+function endExpressionAnimation(){
+    let timeAudio = audio.currentTime.toFixed(2)
+    if(timeAudio>50 && !controlerExpression[2]){
         $("#container2").style.display = "none"
         $("#container3").style.display = "flex"
         controlerExpression[2] = true
     }
 }
-function presentationMotivationAnimation(){
+
+
+function initMotivationAnimation(){
     let timeAudio = audio.currentTime.toFixed(2)
     if(timeAudio>20 && !controlerImg[8]){
         analizeMotivation(_fullName, true)
@@ -109,9 +137,23 @@ function motivationAnimation(){
         }
     }
 }
+function endMotivationAnimation(){
+    let timeAudio = audio.currentTime.toFixed(2)
+    let numberMotivation = calcMotivation()
+    if(timeAudio>4){
+        if(!controlerImg[9]){
+            controlerImg[9] = true
+            insertNumber(numberMotivation)
+        }
+    }
+}
+
+
+
+
 function insertImage(bg, image, text){
     let bgImg = ["border-bg.png", "mandala-bg.png"]
-    let images = ["sign-expression-bg.png","sign-lifepath-bg.webp","sign-personality-bg.png","sign-soulurge-bg.png", "melhorcaminho.png"]
+    let images = ["sign-expression-bg.png","numero-expressao.png","sign-lifepath-bg.webp","sign-personality-bg.png","sign-soulurge-bg.png", "melhorcaminho.png", "oportunidades.png"]
     $("#container2").innerHTML = "<div id='analizingDiv'></div>"
     $("#analizingDiv").innerHTML = `
     <div id="DivImage">

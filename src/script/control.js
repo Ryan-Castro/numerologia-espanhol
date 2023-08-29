@@ -2,8 +2,7 @@ let presentationExpression = false
 let presentationMotivation = false
 let $_destiny = false
 let $_expression = false
-let motivarion = false
-let introductionMotivation = false
+let $_motivation = false
 let ended = false
 let load = false
 
@@ -18,7 +17,7 @@ function starAnalyzing() {
             alert("Espere terminar o carregamento")
             return
         }
-        playDestiny()
+        playInitDestiny()
         return
     }
     if(!$_expression){
@@ -27,19 +26,15 @@ function starAnalyzing() {
             alert("escriba su nombre")
             return
         }
-        playExpression()
+        let genderSelect = $("#genderSelect")
+        _gender = genderSelect.options[genderSelect.selectedIndex].value
+        playInitExpression()
         return
     }
-    if(!presentationMotivation){
-        playPresentetionMotivation()
-        return
-    }
-    if(!motivarion){
-        playMotivation()
-        return
-    }
-    if(!ended){
-        playEnded()
+    if(!$_motivation){
+        let statusSelect = $("#statusSelect")
+        _status = statusSelect.options[statusSelect.selectedIndex].value
+        playInitMotivation()
         return
     }
 
