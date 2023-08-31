@@ -8,10 +8,6 @@ let load = false
 
 function starAnalyzing() {
     if(!$_destiny){
-        $("#container3").style.display = "flex"
-        $("#container1").style.display = "none"
-        $_destiny = true
-        return
         _name = document.querySelector("#inputName").value
         if(_name == ""){
             alert("escriba su nombre")
