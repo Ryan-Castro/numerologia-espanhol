@@ -64,43 +64,84 @@ function playInitExpression(){
         <div>
             <p>Para obtener tu lectura personalizada gratuita de motivación, completa la información a continuación...</p>
         </div>
-        <div>
-            <div>
-                <h3 class="titleInput">
-                    <span>
-                        Su e-mail 
-                    </span>
-                    <hr>
-                    <span class="num">2</span>
-                </h3>
-                <input type="email" id="inputEmail" placeholder="e-mail">
-            </div>
-            <div>
-                <h3 class="titleInput">
-                    <span>
-                        estado civil
-                    </span>
-                    <hr>
-                    <span class="num">1</span>
-                </h3>
-                <select id="statusSelect">
-                    <option value="c">Casado</option>
-                    <option value="s">En una Relacion</option>
-                    <option value="r">Comprometido</option>
-                    <option value="s">Soltero</option>
-                    <option value="s">Separado</option>
-                    <option value="s">Viuvo</option>
-                </select>
-            </div>
-            <div>
-                <h3 class="titleInput">
-                    <span></span>
-                    <span class="num">3</span>
-                </h3>
-                <button onclick="starAnalyzing()">continuar con lectura</button>
-            </div>
+        <div id="mc_embed_signup">
+            <form action="https://gmail.us14.list-manage.com/subscribe/post?u=3835aa7142bba1b6da850498a&amp;id=2a4327cc64&amp;f_id=000aafe0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
+                <div id="mc_embed_signup_scroll">
+                    <div class="mc-field-group">
+                        <h3 class="titleInput">
+                            <span>
+                                Su e-mail 
+                            </span>
+                            <hr>
+                            <span class="num">2</span>
+                        </h3>
+                        <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="">
+                    </div>
+                        
+                    <div class="mc-field-group" style="display: none;">
+                        <input type="text" name="FNAME" class=" text" id="mce-FNAME" value="${_name}">
+                    </div>
+                    
+                    <div class="mc-field-group" style="display: none;">
+                        <input type="text" name="LNAME" class=" text" id="mce-LNAME" value="${_fullName}">
+                    </div>
+                    
+                    <div class="mc-field-group size1of2" style="display: none;">
+                        <div class="datefield">
+                            <span class="subfield dayfield">
+                                <input class="datepart " type="text" pattern="[0-9]*" placeholder="DD" size="2" maxlength="2" name="MMERGE6[day]" id="mce-MMERGE6-day" value="${dateBorn.d}">
+                            </span> 
+                                /
+                            <span class="subfield monthfield">
+                                <input class="datepart " type="text" pattern="[0-9]*" placeholder="MM" size="2" maxlength="2" name="MMERGE6[month]" id="mce-MMERGE6-month" value="${dateBorn.m}">
+                            </span> 
+                                /
+                            <span class="subfield yearfield">
+                                <input class="datepart " type="text" pattern="[0-9]*" placeholder="YYYY" size="4" maxlength="4" name="MMERGE6[year]" id="mce-MMERGE6-year" value="${dateBorn.y}">
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="mc-field-group">
+                        <h3 class="titleInput">
+                            <span>
+                                estado civil
+                            </span>
+                            <hr>
+                            <span class="num">1</span>
+                        </h3>
+                        <select name="MMERGE8" class="" id="mce-MMERGE8">
+                            <option value="Casado">Casado</option>
+                            <option value="En una Relacion">En una Relacion</option>
+                            <option value="Comprometido">Comprometido</option>
+                            <option value="Soltero">Soltero</option>
+                            <option value="Separado">Separado</option>
+                            <option value="Viuvo">Viuvo</option>
+                        </select>
+                    </div>
+                    
+                    <div id="mce-responses" class="clear foot" style="display: none;">
+                        <div class="response" id="mce-error-response" style="display: none;"></div>
+                        <div class="response" id="mce-success-response" style="display: none;"></div>
+                    </div>
+
+                    <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                        /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
+                        <input type="text" name="b_3835aa7142bba1b6da850498a_2a4327cc64" tabindex="-1" value="">
+                    </div>
+                    <div class="optionalParent">
+                        <div class="clear foot">
+                            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                            <p style="margin: 0px auto;"><a href="http://eepurl.com/iyK2YY" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
         `
+    $("#mc-embedded-subscribe-form").addEventListener("submit", ()=>{
+        starAnalyzing()
+    })
     subtitle(subExpression.init)
     audio.addEventListener("ended", initExpres)
     audio.addEventListener("timeupdate", initExpressionAnimation)

@@ -48,7 +48,7 @@ function initDestinyAnimation(){
     }
     if(timeAudio>52 && !controlerDestiny[3]){
         controlerDestiny[3] = true
-        insertImage(0, 1, "Número del aprendizaje")
+        insertImage(0, 3, "Número del aprendizaje")
     }
     if(timeAudio>53 && !controlerDestiny[4]){
         controlerDestiny[4] = true
@@ -56,7 +56,7 @@ function initDestinyAnimation(){
     }
     if(timeAudio>55 && !controlerDestiny[5]){
         controlerDestiny[5] = true
-        insertImage(0, 3, "Número de la expresión")
+        insertImage(0, 1, "Número de la expresión")
     }
     if(timeAudio>57 && !controlerDestiny[6]){
         controlerDestiny[6] = true

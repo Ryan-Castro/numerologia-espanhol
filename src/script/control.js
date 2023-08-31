@@ -8,6 +8,10 @@ let load = false
 
 function starAnalyzing() {
     if(!$_destiny){
+        $("#container3").style.display = "flex"
+        $("#container1").style.display = "none"
+        $_destiny = true
+        return
         _name = document.querySelector("#inputName").value
         if(_name == ""){
             alert("escriba su nombre")
@@ -32,8 +36,18 @@ function starAnalyzing() {
         return
     }
     if(!$_motivation){
-        let statusSelect = $("#statusSelect")
-        _status = statusSelect.options[statusSelect.selectedIndex].value
+        let statusSelect = $("#mce-MMERGE8")
+        switch (statusSelect.options[statusSelect.selectedIndex].value) {
+            case "Casado":
+                _status = "c"
+                break;
+            case "Comprometido":
+                _status = "r"
+                break;
+            default:
+                _status = "s"
+                break;
+        }
         playInitMotivation()
         return
     }
