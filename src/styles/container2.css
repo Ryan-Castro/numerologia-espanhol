@@ -170,6 +170,19 @@
     opacity: 0;
     transition: .5s;
 }
+#divContinueToEnd{
+    margin-top: 50px;
+}
+#divContinueToEnd p{
+    font-size: 40px;
+}
+#divContinueToEnd input{
+    margin-top: 50px;
+    font-size: 20px;
+    padding: 10px 50px;
+    border-radius: 50px;
+    border: none;
+}
 @media (max-width: 1200px) {
     #container2{
         width: 100%;

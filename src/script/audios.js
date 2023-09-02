@@ -63,7 +63,7 @@ function playInitExpression(){
     audio.play()
     $("#inputGenrer").style.display = "none"
     $("#inputFullName").style.display = "none"
-    $("#btnContinue").style.display = "none"
+    $("#btnContinueForm").style.display = "none"
     $("#inputStatus").style.display = "block"
     $("#inputEmail").style.display = "block"
     $("#mce-FNAME").value = _name
@@ -162,7 +162,7 @@ function playEndMotication(){
     function endMot(){
         audio.removeEventListener("ended", endMot)
         $("#subtitle").style.display = "none"
-        $("#analizingDiv").innerHTML = `<div><p>?Deseas profundizar en tu lectura?</p><input type="button" value="Sí, quiero" onclick="playEnd"/></div>`
+        $("#analizingDiv").innerHTML = `<div id="divContinueToEnd"><p>?Deseas profundizar en tu lectura?</p><input type="button" value="Sí, quiero" onclick="playEnd()"/></div>`
     }
 }
 
