@@ -10,7 +10,8 @@ let controlerDestiny = {
     6:false,
     7:false,
     8:false,
-    9:false
+    9:false,
+    10:false
 }
 let controlerExpression = {
     0:false,
@@ -62,12 +63,47 @@ function initDestinyAnimation(){
         controlerDestiny[6] = true
         insertImage(0, 4, "número de la personalidad")
     }
-    if(timeAudio>60 && !firstPhase){
+    if(timeAudio>65 && !controlerDestiny[7]){
+        controlerDestiny[7] = true
+        $("#analizingDiv").innerHTML = `
+            <div id="questions">
+                <h2 id="question1">¿Quién es usted?</h2>
+                <h2 id="question2">¿Cuál es el gran objetivo de tu vida?</h2>
+                <h2 id="question3">¿Cómo te ve la gente?</h2>
+                <h2 id="question4">¿Cuál es la forma más fácil y segura de tener más prosperidad y abundancia?</h2>
+                <h2 id="question5">¿Qué me depara el futuro?</h2>
+
+            </div>
+        `
+        $("#question1").style.marginTop = "10px"
+        $("#question1").style.opacity = "1"
+    }
+    if(timeAudio>66 && timeAudio<80){
+        $("#question1").style.marginTop = "10px"
+        $("#question1").style.opacity = "1"
+    }
+    if(timeAudio>66.5 && timeAudio<80){
+        $("#question2").style.marginTop = "10px"
+        $("#question2").style.opacity = "1"
+    }
+    if(timeAudio>68 && timeAudio<80){
+        $("#question3").style.marginTop = "10px"
+        $("#question3").style.opacity = "1"
+    }
+    if(timeAudio>70 && timeAudio<80){
+        $("#question4").style.marginTop = "10px"
+        $("#question4").style.opacity = "1"
+    }
+    if(timeAudio>75 && timeAudio<80){
+        $("#question5").style.marginTop = "10px"
+        $("#question5").style.opacity = "1"
+    }
+    if(timeAudio>80 && !firstPhase){
         setAnalizingCalc()
         firstPhase = true
     }
-    if(timeAudio> 60 && timeAudio<75){
-        showTable(timeAudio, 60)
+    if(timeAudio> 80 && timeAudio<95){
+        showTable(timeAudio, 80)
     }
 }
 function destinyAnimation(){
@@ -76,20 +112,20 @@ function destinyAnimation(){
     if(numberDestinyBase > 9 && numberDestinyBase != 11 && numberDestinyBase != 22){
         numberDestinyBase = Number(numberDestinyBase.toString()[0]) + Number(numberDestinyBase.toString()[1])
     }
-    if(timeAudio>1 && !controlerDestiny[7]){
-        controlerDestiny[7] = true
+    if(timeAudio>1 && !controlerDestiny[8]){
+        controlerDestiny[8] = true
         insertImage(0, 0, `Tu número del destino es el: ${numberDestinyBase}`)
     }
-    if(timeAudio>20 && !controlerDestiny[8]){
-        controlerDestiny[8] = true
+    if(timeAudio>20 && !controlerDestiny[9]){
+        controlerDestiny[9] = true
         insertNumber(numberDestinyBase)
     }
 }
 function endDestinyAnimation(){
     let timeAudio = audio.currentTime.toFixed(2)
-    if(timeAudio>20 && !controlerDestiny[9]){
+    if(timeAudio>20 && !controlerDestiny[10]){
         analizeExpression(_name, false)
-        controlerDestiny[9] = true
+        controlerDestiny[10] = true
     }
 }
 

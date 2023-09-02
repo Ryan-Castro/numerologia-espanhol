@@ -11,6 +11,7 @@ function playInitDestiny(){
     audio.addEventListener("timeupdate", initDestinyAnimation)
     audioFundo.volume = 0.15
     audioFundo.play()
+    audio.playbackRate = 1.2
     setAnalizingCalc()
     subtitle(subDestiny.init)
     function presInitDes(){
@@ -60,85 +61,16 @@ function playInitExpression(){
     insertImage(0, 1, _fullName)
     audio.src = `./src/audios/expression/init.mp3`
     audio.play()
-    $("#container3").innerHTML = `
-        <div>
-            <p>Para obtener tu lectura personalizada gratuita de motivación, completa la información a continuación...</p>
-        </div>
-        <div id="mc_embed_signup">
-            <form action="https://gmail.us14.list-manage.com/subscribe/post?u=3835aa7142bba1b6da850498a&amp;id=2a4327cc64&amp;f_id=000aafe0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
-                <div id="mc_embed_signup_scroll">
-                    <div class="mc-field-group">
-                        <h3 class="titleInput">
-                            <span>
-                                Su e-mail 
-                            </span>
-                            <hr>
-                            <span class="num">2</span>
-                        </h3>
-                        <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="">
-                    </div>
-                        
-                    <div class="mc-field-group" style="display: none;">
-                        <input type="text" name="FNAME" class=" text" id="mce-FNAME" value="${_name}">
-                    </div>
-                    
-                    <div class="mc-field-group" style="display: none;">
-                        <input type="text" name="LNAME" class=" text" id="mce-LNAME" value="${_fullName}">
-                    </div>
-                    
-                    <div class="mc-field-group size1of2" style="display: none;">
-                        <div class="datefield">
-                            <span class="subfield dayfield">
-                                <input class="datepart " type="text" pattern="[0-9]*" placeholder="DD" size="2" maxlength="2" name="MMERGE6[day]" id="mce-MMERGE6-day" value="${dateBorn.d}">
-                            </span> 
-                                /
-                            <span class="subfield monthfield">
-                                <input class="datepart " type="text" pattern="[0-9]*" placeholder="MM" size="2" maxlength="2" name="MMERGE6[month]" id="mce-MMERGE6-month" value="${dateBorn.m}">
-                            </span> 
-                                /
-                            <span class="subfield yearfield">
-                                <input class="datepart " type="text" pattern="[0-9]*" placeholder="YYYY" size="4" maxlength="4" name="MMERGE6[year]" id="mce-MMERGE6-year" value="${dateBorn.y}">
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <div class="mc-field-group">
-                        <h3 class="titleInput">
-                            <span>
-                                estado civil
-                            </span>
-                            <hr>
-                            <span class="num">1</span>
-                        </h3>
-                        <select name="MMERGE8" class="" id="mce-MMERGE8">
-                            <option value="Casado">Casado</option>
-                            <option value="En una Relacion">En una Relacion</option>
-                            <option value="Comprometido">Comprometido</option>
-                            <option value="Soltero">Soltero</option>
-                            <option value="Separado">Separado</option>
-                            <option value="Viuvo">Viuvo</option>
-                        </select>
-                    </div>
-                    
-                    <div id="mce-responses" class="clear foot" style="display: none;">
-                        <div class="response" id="mce-error-response" style="display: none;"></div>
-                        <div class="response" id="mce-success-response" style="display: none;"></div>
-                    </div>
-
-                    <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                        /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
-                        <input type="text" name="b_3835aa7142bba1b6da850498a_2a4327cc64" tabindex="-1" value="">
-                    </div>
-                    <div class="optionalParent">
-                        <div class="clear foot">
-                            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
-                            <p style="margin: 0px auto;"><a href="http://eepurl.com/iyK2YY" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-        `
+    $("#inputGenrer").style.display = "none"
+    $("#inputFullName").style.display = "none"
+    $("#btnContinue").style.display = "none"
+    $("#inputStatus").style.display = "block"
+    $("#inputEmail").style.display = "block"
+    $("#mce-FNAME").value = _name
+    $("#mce-MMERGE6-day").value = dateBorn.d
+    $("#mce-MMERGE6-month").value = dateBorn.m
+    $("#mce-MMERGE6-year").value = dateBorn.y
+    $("#mc-embedded-subscribe").style.display = "block"
     $("#mc-embedded-subscribe-form").addEventListener("submit", ()=>{
         starAnalyzing()
     })
@@ -230,6 +162,7 @@ function playEndMotication(){
     function endMot(){
         audio.removeEventListener("ended", endMot)
         $("#subtitle").style.display = "none"
+        $("#analizingDiv").innerHTML = `<div><p>?Deseas profundizar en tu lectura?</p><input type="button" value="Sí, quiero" onclick="playEnd"/></div>`
     }
 }
 
@@ -237,29 +170,48 @@ function playEndMotication(){
 function playEnd(){
     $("#container1").style.display = "none"
     $("#container2").style.display = "flex"
-    audio.src = `./src/audios/end1.mp3`
-    $("#container2").innerHTML = `
-        <img src="./src/images/capa-mapa.jpeg" alt="" class="imgFocus">
-    `
+    $("#subtitle").style.display = "flex"
+    audio.src = `./src/audios/end/1.mp3`
+    $("#analizingDiv").innerHTML = `
+        <div id="DivNumber">
+            <div>
+                <img src="./src/images/mandala-object-22.png" class="" style="width: 365px;">
+                <img src="./src/images/mandala-bg.png" class="" style="width: 400px;">
+                <img src="./src/images/mandala-shape-22.png" class="spinY1" style="height: 365px;">
+                <img src="./src/images/mandala-lines-22.png" class="spinY2" style="height: 370px;">
+            </div>
+        </div>
+    `    
     audio.play()
-    //subtitle(subEnd[1])
+    subtitle(subEnd[1])
     audio.addEventListener("ended", audio2)
     function audio2(){
         audio.removeEventListener("ended", audio2)
-        audio.src = `./src/audios/end2.mp3`
+        audio.src = `./src/audios/end/2.mp3`
         audio.play()
-        //subtitle(subEnd[2])
+        $("#container2").innerHTML = "<div id='analizingDiv'></div>"
+        $("#analizingDiv").innerHTML = `
+        <div id="DivCapa">
+            <img src="./src/images/capa-mapa.png"/>
+        </div>
+        `
+        subtitle(subEnd[2])
         audio.addEventListener("ended", audio3)
     }
     function audio3(){
-        audio.removeEventListener("ended", audio3)
-        ended = true
         $("#container2").style.display = "none"
         $("#container4").style.display = "flex"
-        audio.src = `./src/audios/end3.mp3`
+        audio.removeEventListener("ended", audio3)
+        audio.src = `./src/audios/end/3.mp3`
         audio.play()
-        //subtitle(subEnd[3])
-        //audio.addEventListener("ended", endead)
+        audio.addEventListener("ended", audio4)
+    }
+    function audio4(){
+        audio.removeEventListener("ended", audio3)
+        audio.src = `./src/audios/end/4.mp3`
+        audio.play()
+        subtitle(subEnd[4])
+        audio.addEventListener("ended", endead)
     }
     function endead(){
         document.querySelector("#subtitle").style.display = "none"

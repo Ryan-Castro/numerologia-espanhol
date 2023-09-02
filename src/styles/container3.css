@@ -50,7 +50,7 @@
     padding: 10px 20px;
     margin-top: 15px;
 }
-#container3 #mc-embedded-subscribe{
+#container3 button,#container3 #mc-embedded-subscribe{
     width: 290px;
     padding: 7px;
     margin-top: 15px;

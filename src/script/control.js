@@ -21,13 +21,22 @@ function starAnalyzing() {
         return
     }
     if(!$_expression){
-        _fullName = document.querySelector("#inputFullName").value
+        _fullName = document.querySelector("#mce-LNAME").value
         if(_fullName == ""){
             alert("escriba su nombre")
             return
         }
-        let genderSelect = $("#genderSelect")
-        _gender = genderSelect.options[genderSelect.selectedIndex].value
+        let genderSelect = $("#mce-MMERGE7")
+        switch (genderSelect.options[genderSelect.selectedIndex].value) {
+            case "Masculino":
+                _gender = "h"
+                
+                break;
+        
+            default:
+                _gender = "m"
+                break;
+        }
         playInitExpression()
         return
     }

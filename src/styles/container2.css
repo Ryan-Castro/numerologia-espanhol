@@ -156,11 +156,31 @@
     margin-top: 50px;
     animation: focus 3s linear infinite;
 }
+#DivCapa{
+    height: 50vh;
+}
+#DivCapa img{
+    height: 100%;
+}
+#questions{
+    position: relative;
+}
+#questions h2{
+    margin-top: 50px;
+    opacity: 0;
+    transition: .5s;
+}
+@media (max-width: 1200px) {
+    #container2{
+        width: 100%;
+    }
+
+}
 @media (max-width: 800px) {
     #container2{
         width: 100%;
         transform: scale(0.8);
-        margin-top: -80px;
+        margin-top: -50px;
     }
     #analizingDiv{
         width: 800px;
@@ -177,7 +197,7 @@
 }
 @media (max-width: 450px) {
     #container2{
-        margin-top: -150px;
+        margin-top: -125px;
         transform: scale(0.45);
     }
 
