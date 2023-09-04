@@ -49,14 +49,8 @@ function playExpression(){
     $("#mc-embedded-subscribe").style.display = "block"
     $("#mc-embedded-subscribe-form").addEventListener("submit", starAnalyzing)
     subtitle(subExpression.init, 0)
-    audio.addEventListener("ended", initExpres)
     audio.addEventListener("timeupdate", expressionAnimation)
     $_expression = true
-    function initExpres(){
-        playExpression()
-        audio.removeEventListener("ended", initExpres)
-        audio.removeEventListener("timeupdate", expressionAnimation)
-    }
 }
 function playMotivation(){
     $("#container2").style.display = "flex"
@@ -101,7 +95,7 @@ function playEnd(){
         </div>
     `    
     audio.play()
-    subtitle(subEnd[1])
+    subtitle(subEnd[1], 0)
     audio.addEventListener("ended", audio2)
     function audio2(){
         audio.removeEventListener("ended", audio2)
@@ -113,7 +107,7 @@ function playEnd(){
             <img src="./src/images/capa-mapa.png"/>
         </div>
         `
-        subtitle(subEnd[2])
+        subtitle(subEnd[2], 0)
         audio.addEventListener("ended", audio3)
     }
     function audio3(){
@@ -121,6 +115,7 @@ function playEnd(){
         $("#container4").style.display = "flex"
         audio.removeEventListener("ended", audio3)
         audio.src = `./src/audios/end/3.mp3`
+        subtitle(subEnd[3], 0)
         audio.play()
         audio.addEventListener("ended", audio4)
     }
@@ -128,7 +123,7 @@ function playEnd(){
         audio.removeEventListener("ended", audio3)
         audio.src = `./src/audios/end/4.mp3`
         audio.play()
-        subtitle(subEnd[4])
+        subtitle(subEnd[4], 0)
         audio.addEventListener("ended", endead)
     }
     function endead(){

@@ -42,6 +42,7 @@ function starAnalyzing() {
         return
     }
     if(!$_motivation){
+        audio.removeEventListener("timeupdate", expressionAnimation)
         let statusSelect = $("#mce-MMERGE8")
         switch (statusSelect.options[statusSelect.selectedIndex].value) {
             case "Casado":

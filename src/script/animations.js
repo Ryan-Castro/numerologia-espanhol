@@ -58,6 +58,7 @@ let timeBaseExpression = {
 
 
 
+
 function destinyAnimation(){
     let timeAudio = audio.currentTime.toFixed(2)
     let numberDestinyBase = Number(sumDate.d) + Number(sumDate.m) + Number(sumDate.y)
@@ -208,6 +209,10 @@ function motivationAnimation(){
         </div>
         `    
         controlerMotivation[0] = true
+    }
+    if(timeAudio > (audio.duration - 87) && !controlerMotivation[1]){
+        subtitle(subMotivation[`${_gender}_end`], (audio.duration - 87))
+        controlerMotivation[1] = true
     }
 }
 
