@@ -1,20 +1,17 @@
-function subtitle(array){
+function subtitle(array, timeInit){
     document.querySelector("#subtitleP").innerHTML = array[0]
     let conterText = 1
-    let currentTime = 0
     let Interval = setInterval(()=>{
-        if((conterText*5) <= audio.duration){
-            if((conterText*5) < audio.currentTime){
+        if(conterText < array.length){
+            if((conterText*5) < (audio.currentTime - timeInit)){
                 document.querySelector("#subtitleP").innerHTML = array[conterText]
                 conterText++
-                currentTime =audio.currentTime
             }
             return
         } 
         clearInterval(Interval)
     }, 500)
 }
-
 
 let subDestiny = {
     init: [

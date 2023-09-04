@@ -11,7 +11,9 @@ let controlerDestiny = {
     7:false,
     8:false,
     9:false,
-    10:false
+    10:false,
+    11:false,
+    12:false,
 }
 let controlerExpression = {
     0:false,
@@ -25,11 +27,43 @@ let controlerExpression = {
     8:false,
     9:false
 }
+let controlerMotivation = {
+    0:false
+}
+let timeBaseDestiny = {
+    1: 205,
+    2: 192,
+    3: 185,
+    4: 195,
+    5: 186,
+    6: 182,
+    7: 173,
+    8: 172,
+    9: 172,
+    11: 178,
+    22: 181
+}
+let timeBaseExpression = {
+    1: 105,
+    2: 106,
+    3: 106,
+    4: 109,
+    5: 125,
+    6: 113,
+    7: 122,
+    8: 125,
+    9: 117,
+    11: 122,
+}
 
 
 
-function initDestinyAnimation(){
+function destinyAnimation(){
     let timeAudio = audio.currentTime.toFixed(2)
+    let numberDestinyBase = Number(sumDate.d) + Number(sumDate.m) + Number(sumDate.y)
+    if(numberDestinyBase > 9 && numberDestinyBase != 11 && numberDestinyBase != 22){
+        numberDestinyBase = Number(numberDestinyBase.toString()[0]) + Number(numberDestinyBase.toString()[1])
+    }
     if(timeAudio> 1 && timeAudio<15){
         showTable(timeAudio, 0)
     }
@@ -105,82 +139,75 @@ function initDestinyAnimation(){
     if(timeAudio> 80 && timeAudio<95){
         showTable(timeAudio, 80)
     }
-}
-function destinyAnimation(){
-    let timeAudio = audio.currentTime.toFixed(2)
-    let numberDestinyBase = Number(sumDate.d) + Number(sumDate.m) + Number(sumDate.y)
-    if(numberDestinyBase > 9 && numberDestinyBase != 11 && numberDestinyBase != 22){
-        numberDestinyBase = Number(numberDestinyBase.toString()[0]) + Number(numberDestinyBase.toString()[1])
-    }
-    if(timeAudio>1 && !controlerDestiny[8]){
+    if(timeAudio>113 && !controlerDestiny[8]){
         controlerDestiny[8] = true
         insertImage(0, 0, `Tu número del destino es el: ${numberDestinyBase}`)
     }
-    if(timeAudio>20 && !controlerDestiny[9]){
+    if(timeAudio>132 && !controlerDestiny[9]){
         controlerDestiny[9] = true
         insertNumber(numberDestinyBase)
     }
-}
-function endDestinyAnimation(){
-    let timeAudio = audio.currentTime.toFixed(2)
-    if(timeAudio>20 && !controlerDestiny[10]){
+    if(timeAudio> (20 + timeBaseDestiny[numberDestinyBase]) && !controlerDestiny[10]){
         analizeExpression(_name, false)
         controlerDestiny[10] = true
     }
-}
-
-
-function initExpressionAnimation(){
-    let timeAudio = audio.currentTime.toFixed(2)
-    if(timeAudio>20 && !controlerExpression[0]){
-        analizeExpression(_fullName, true)
-        controlerExpression[0] = true
+    if(timeAudio> 112 && !controlerDestiny[11]){
+        subtitle(subDestiny[numberDestinyBase], 112)
+        controlerDestiny[11] = true
+    }
+    if(timeAudio> timeBaseDestiny[numberDestinyBase] && !controlerDestiny[12]){
+        subtitle(subDestiny.end, timeBaseDestiny[numberDestinyBase])
+        controlerDestiny[12] = true
     }
 }
 function expressionAnimation(){
     let timeAudio = audio.currentTime.toFixed(2)
     let numberExpression = calcExpression()
-    if(timeAudio>5 && !controlerExpression[1]){
+    if(timeAudio>20 && !controlerExpression[0]){
+        analizeExpression(_fullName, true)
+        controlerExpression[0] = true
+    }
+    if(timeAudio>54 && !controlerExpression[1]){
         insertNumber(numberExpression)
         controlerExpression[1] = true
-    }
-
-}
-function endExpressionAnimation(){
-    let timeAudio = audio.currentTime.toFixed(2)
-    if(timeAudio>50 && !controlerExpression[2]){
+    }    
+    if(timeAudio> (50 + timeBaseExpression[numberExpression]) && !controlerExpression[2]){
         $("#container2").style.display = "none"
         $("#container3").style.display = "flex"
         controlerExpression[2] = true
     }
-}
-
-
-function initMotivationAnimation(){
-    let timeAudio = audio.currentTime.toFixed(2)
-    if(timeAudio>20 && !controlerImg[8]){
-        analizeMotivation(_fullName, true)
-        controlerImg[8] = true
-    }
+    if(timeAudio>50 && !controlerExpression[3]){
+        subtitle(subExpression[numberExpression], 50)
+        controlerExpression[3] = true
+    }   
+    if(timeAudio>timeBaseExpression[numberExpression] && !controlerExpression[4]){
+        subtitle(subExpression.end, timeBaseExpression[numberExpression])
+        controlerExpression[4] = true
+    }     
 }
 function motivationAnimation(){
     let timeAudio = audio.currentTime.toFixed(2)
-    let numberMotivation = calcMotivation()
-    if(timeAudio>4){
-        if(!controlerImg[9]){
-            controlerImg[9] = true
-            insertNumber(numberMotivation)
-        }
-    }
-}
-function endMotivationAnimation(){
-    let timeAudio = audio.currentTime.toFixed(2)
-    let numberMotivation = calcMotivation()
-    if(timeAudio>4){
-        if(!controlerImg[9]){
-            controlerImg[9] = true
-            insertNumber(numberMotivation)
-        }
+    let timeBaseInitMotivation = {h: 44, m:43,}
+    if(timeAudio > timeBaseInitMotivation[_gender] && !controlerMotivation[0]){
+        let dataRef =  2023 - Number(dateBorn.y)
+        let yaerRed = 19
+        if(dataRef >= 60){ yaerRed = 60 }
+        if(dataRef >= 50){ yaerRed = 50 }
+        if(dataRef >= 40){ yaerRed = 40 }
+        if(dataRef >= 30){ yaerRed = 30 }
+        if(dataRef >= 20){ yaerRed = 20 }
+        subtitle(subMotivation[`${_gender}_${_status}${yaerRed}`])
+        $("#analizingDiv").innerHTML = `
+        <div id="DivNumber">
+            <div>
+                <img src="./src/images/mandala-object-22.png" class="" style="width: 365px;">
+                <img src="./src/images/mandala-bg.png" class="" style="width: 400px;">
+                <img src="./src/images/mandala-shape-22.png" class="spinY1" style="height: 365px;">
+                <img src="./src/images/mandala-lines-22.png" class="spinY2" style="height: 370px;">
+            </div>
+        </div>
+        `    
+        controlerMotivation[0] = true
     }
 }
 

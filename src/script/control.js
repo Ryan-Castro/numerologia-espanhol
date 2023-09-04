@@ -7,6 +7,7 @@ let ended = false
 let load = false
 
 function starAnalyzing() {
+    console.log("teste")
     if(!$_destiny){
         _name = document.querySelector("#inputName").value
         if(_name == ""){
@@ -17,7 +18,7 @@ function starAnalyzing() {
             alert("Espere terminar o carregamento")
             return
         }
-        playInitDestiny()
+        playDestiny()
         return
     }
     if(!$_expression){
@@ -37,7 +38,7 @@ function starAnalyzing() {
                 _gender = "m"
                 break;
         }
-        playInitExpression()
+        playExpression()
         return
     }
     if(!$_motivation){
@@ -53,7 +54,7 @@ function starAnalyzing() {
                 _status = "s"
                 break;
         }
-        playInitMotivation()
+        playMotivation()
         return
     }
 

@@ -1,66 +1,42 @@
-function playInitDestiny(){
+function playDestiny(){
     $("#container1").style.display = "none"
     $("#container2").style.display = "flex"
     $("#container5").style.display = "flex"
     $("#subtitle").style.display = "flex"
     $("#analizingName").innerHTML = _name
     $("#analizingDate").innerHTML = `${dateBorn.d} / ${dateBorn.m} / ${dateBorn.y}`
-    audio.src = `./src/audios/destiny/init.mp3`
-    audio.play()
-    audio.addEventListener("ended", presInitDes)
-    audio.addEventListener("timeupdate", initDestinyAnimation)
-    audioFundo.volume = 0.15
-    audioFundo.play()
-    audio.playbackRate = 1.2
-    setAnalizingCalc()
-    subtitle(subDestiny.init)
-    function presInitDes(){
-        audio.removeEventListener("ended", presInitDes)
-        audio.removeEventListener("timeupdate", initDestinyAnimation)
-        playDestiny()
-    }   
-}
-function playDestiny(){
+    console.log("destino")
     let numberDestiny = Number(sumDate.d) + Number(sumDate.m) + Number(sumDate.y)
     if(numberDestiny > 9 && numberDestiny != 11 && numberDestiny != 22){
         numberDestiny = Number(numberDestiny.toString()[0]) + Number(numberDestiny.toString()[1])
     }
     audio.src = `./src/audios/destiny/${numberDestiny}.mp3`
     audio.play()
-    audio.addEventListener("ended", presDes)
+    audio.addEventListener("ended", presInitDes)
     audio.addEventListener("timeupdate", destinyAnimation)
-    subtitle(subDestiny[numberDestiny])
-    function presDes(){
-        audio.removeEventListener("ended", presDes)
-        audio.removeEventListener("timeupdate", destinyAnimation)
-        playEndDestiny()
-    }   
-}
-function playEndDestiny(){
-    audio.src = `./src/audios/destiny/end.mp3`
-    audio.play()
-    audio.addEventListener("ended", presEndDes)
-    audio.addEventListener("timeupdate", endDestinyAnimation)
-    subtitle(subDestiny.end)
-    function presEndDes(){
+    audioFundo.volume = 0.15
+    audioFundo.play()
+    audio.playbackRate = 1.1
+    setAnalizingCalc()
+    subtitle(subDestiny.init, 0)
+    function presInitDes(){
         $_destiny = true
+        $("#subtitle").style.display = "none"
         $("#container2").style.display = "none"
         $("#container3").style.display = "flex"
-        $("#subtitle").style.display = "none"
-        audio.removeEventListener("ended", presEndDes)
-        audio.removeEventListener("timeupdate", endDestinyAnimation)
+        audio.removeEventListener("ended", presInitDes)
+        audio.removeEventListener("timeupdate", destinyAnimation)
     }   
 }
-
-
-
-function playInitExpression(){
+function playExpression(){
     $("#container3").style.display = "none"
     $("#container2").style.display = "flex"
     $("#subtitle").style.display = "flex"
     insertImage(0, 1, _fullName)
-    audio.src = `./src/audios/expression/init.mp3`
+    let numberExpression = calcExpression()
+    audio.src = `./src/audios/expression/${numberExpression}.mp3`
     audio.play()
+    console.log("expressão")
     $("#inputGenrer").style.display = "none"
     $("#inputFullName").style.display = "none"
     $("#btnContinueForm").style.display = "none"
@@ -71,72 +47,23 @@ function playInitExpression(){
     $("#mce-MMERGE6-month").value = dateBorn.m
     $("#mce-MMERGE6-year").value = dateBorn.y
     $("#mc-embedded-subscribe").style.display = "block"
-    $("#mc-embedded-subscribe-form").addEventListener("submit", ()=>{
-        starAnalyzing()
-    })
-    subtitle(subExpression.init)
+    $("#mc-embedded-subscribe-form").addEventListener("submit", starAnalyzing)
+    subtitle(subExpression.init, 0)
     audio.addEventListener("ended", initExpres)
-    audio.addEventListener("timeupdate", initExpressionAnimation)
+    audio.addEventListener("timeupdate", expressionAnimation)
+    $_expression = true
     function initExpres(){
         playExpression()
         audio.removeEventListener("ended", initExpres)
-        audio.removeEventListener("timeupdate", initExpressionAnimation)
-    }
-}
-function playExpression(){
-    let numberExpression = calcExpression()
-    audio.src = `./src/audios/expression/${numberExpression}.mp3`
-    audio.play()
-    subtitle(subExpression[numberExpression])
-    audio.addEventListener("ended", expres)
-    audio.addEventListener("timeupdate", expressionAnimation)
-    function expres(){
-        playEndExpression()
-        audio.removeEventListener("ended", expres)
         audio.removeEventListener("timeupdate", expressionAnimation)
     }
 }
-function playEndExpression(){
-    audio.src = `./src/audios/expression/end.mp3`
-    audio.play()
-    subtitle(subExpression.end)
-    audio.addEventListener("ended", endExpres)
-    audio.addEventListener("timeupdate", endExpressionAnimation)    
-    $_expression = true
-    function endExpres(){
-        $("#subtitle").style.display = "none"
-        audio.removeEventListener("ended", endExpres)
-        audio.removeEventListener("timeupdate", endExpressionAnimation)
-    }
-}
-
-
-
-function playInitMotivation(){
+function playMotivation(){
     $("#container2").style.display = "flex"
     $("#container3").style.display = "none"
     $("#subtitle").style.display = "flex"
     insertImage(0, 2, _fullName)
-    audio.src = `./src/audios/motivation/${_gender}-init.mp3`
-    audio.play()
-    subtitle(subMotivation[`${_gender}_init`])
-    audio.addEventListener("ended", presInitMot)
-    function presInitMot(){
-        audio.removeEventListener("ended", presInitMot)
-        playMotivation()
-    }
-}
-function playMotivation(){
-    $("#analizingDiv").innerHTML = `
-        <div id="DivNumber">
-            <div>
-                <img src="./src/images/mandala-object-22.png" class="" style="width: 365px;">
-                <img src="./src/images/mandala-bg.png" class="" style="width: 400px;">
-                <img src="./src/images/mandala-shape-22.png" class="spinY1" style="height: 365px;">
-                <img src="./src/images/mandala-lines-22.png" class="spinY2" style="height: 370px;">
-            </div>
-        </div>
-    `    
+    console.log("motivation")
     let dataRef =  2023 - Number(dateBorn.y)
     let yaerRed = 19
     if(dataRef >= 60){ yaerRed = 60 }
@@ -146,21 +73,12 @@ function playMotivation(){
     if(dataRef >= 20){ yaerRed = 20 }
     audio.src = `./src/audios/motivation/${_gender}-${yaerRed}-${_status}.mp3`
     audio.play()
-    subtitle(subMotivation[`${_gender}_${_status}${yaerRed}`])
-    audio.addEventListener("ended", mot)
-    function mot(){
-        audio.removeEventListener("ended", mot)
-        playEndMotication()
-    }
-
-}
-function playEndMotication(){
-    audio.src = `./src/audios/motivation/${_gender}-end.mp3`
-    audio.play()
-    subtitle(subMotivation[`${_gender}_end`])
-    audio.addEventListener("ended", endMot)
-    function endMot(){
-        audio.removeEventListener("ended", endMot)
+    subtitle(subMotivation[`${_gender}_init`], 0)
+    audio.addEventListener("ended", presInitMot)
+    audio.addEventListener("timeupdate", motivationAnimation)
+    function presInitMot(){
+        audio.removeEventListener("ended", presInitMot)
+        audio.removeEventListener("timeupdate", motivationAnimation)
         $("#subtitle").style.display = "none"
         $("#analizingDiv").innerHTML = `<div id="divContinueToEnd"><p>?Deseas profundizar en tu lectura?</p><input type="button" value="Sí, quiero" onclick="playEnd()"/></div>`
     }
