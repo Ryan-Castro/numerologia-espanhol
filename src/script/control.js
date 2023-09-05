@@ -7,7 +7,6 @@ let ended = false
 let load = false
 
 function starAnalyzing() {
-    console.log("teste")
     if(!$_destiny){
         _name = document.querySelector("#inputName").value
         if(_name == ""){

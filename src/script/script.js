@@ -4,11 +4,16 @@ let _name = ""
 let _fullName = ""
 let _gender = ""
 let _status = ""
-let months = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"]
 let dateBorn = {d: "", m: "", y:""}
 let sumDate = {d: "", m: "", y:""}
-let sumDestiny = 0
-
+let calcNumber = {
+    destiny: 0,
+    expression: 0,
+    soul: 0,
+    personality: 0,
+    learning: 0,
+    maturation: {day: "", month: 0},
+}
 
 function $(element){
     return document.querySelector(element)
@@ -23,8 +28,7 @@ function calcExpression(){
     })
     return synthesizeNumber(sumNumber)
 }
-
-function calcMotivation(){
+function calcSoul(){
     let nameFull = _fullName.toLocaleLowerCase().replaceAll(" ", "")
     let sumNumber = 0
     nameFull.split("").forEach(letter=>{
@@ -34,13 +38,62 @@ function calcMotivation(){
             case "i": sumNumber += tableCabalistic[letter]; break;
             case "o": sumNumber += tableCabalistic[letter]; break;
             case "u": sumNumber += tableCabalistic[letter]; break;
-            default:
-                break;
-        }
-        
+            default: sumNumber += 0; break;
+        }  
     })
     return synthesizeNumber(sumNumber)
 }
+function calcPersonality(){
+    let nameFull = _fullName
+                        .toLocaleLowerCase()
+                        .replaceAll(" ", "")
+                        .replaceAll("a", "")
+                        .replaceAll("e", "")
+                        .replaceAll("i", "")
+                        .replaceAll("o", "")
+                        .replaceAll("u", "")
+    let sumNumber = 0
+    nameFull.split("").forEach(letter=>{
+        sumNumber += tableCabalistic[letter]
+    })
+    return synthesizeNumber(sumNumber)
+}
+function calcLearning(){
+    let baseNum = dateBorn.d
+    while (baseNum>9) {
+        let baseSum = 0
+        baseNum.toString().split("").forEach(num=>{
+            baseSum += Number(num)
+        })
+        baseNum = baseSum
+    }
+    calcNumber.learning = baseNum
+}
+function calcMaturation(){
+    let daysLuck = [
+        [1, 10, 19, 28],
+        [2, 11, 20, 29],
+        [3, 12, 21, 30],
+        [4, 13, 22, 31],
+        [5, 14, 23],
+        [6, 15, 24],
+        [7, 16, 25],
+        [8, 17, 26],
+        [9, 18, 27],
+    ]
+    daysLuck.forEach(element => {
+        if(element.indexOf(Number(dateBorn.d)) != -1){
+            calcNumber.maturation.day = JSON.stringify(element).replace("[", "").replace("]", "").replaceAll(",", ", ")
+        }
+    });
+    if(Number(dateBorn.m) > 9){
+        calcNumber.maturation.month = Number(dateBorn.m.toString()[0]) + Number(dateBorn.m.toString()[1])
+        return
+    }
+    calcNumber.maturation.month = Number(dateBorn.m)
+    
+}
+
 
 function synthesizeNumber(number){
     let baseNum = Number(number)

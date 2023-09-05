@@ -234,7 +234,6 @@ function insertImage(bg, image, text){
     
 }
 function insertNumber(number){
-    console.log(number)
     $("#container2").innerHTML = "<div id='analizingDiv'></div>"
     switch (number) {
         case 1: 
@@ -387,7 +386,7 @@ function analizeExpression(text, comlet){
     textArrey.forEach((element, index) => {
         setTimeout(() => {
             for(i of $("#tableCabalist").children[0].children){
-                if(i.id.indexOf(element) != -1 && i.id != "header"){
+                if(i.id.indexOf(element.toLocaleLowerCase()) != -1 && i.id != "header"){
                     i.children[(tableCabalistic[element.toLocaleLowerCase()] - 1)].className = "active"
                 }
                 
