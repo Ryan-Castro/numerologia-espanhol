@@ -158,9 +158,16 @@
 }
 #DivCapa{
     height: 50vh;
+    transition: 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #DivCapa img{
     height: 100%;
+}
+#DivCapa span{
+    color: yellow;
 }
 #questions{
     position: relative;

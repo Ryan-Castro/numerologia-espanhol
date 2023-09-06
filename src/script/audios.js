@@ -113,29 +113,28 @@ function playEnd(){
     audio.play()
     subtitle(subEnd[1], 0)
     audio.addEventListener("ended", audio2)
+    audio.addEventListener("timeupdate", endAnimation1)
     function audio2(){
         audio.removeEventListener("ended", audio2)
+        audio.removeEventListener("timeupdate", endAnimation1)
         audio.src = `./src/audios/end/2.mp3`
         audio.play()
-        $("#container2").innerHTML = "<div id='analizingDiv'></div>"
-        $("#analizingDiv").innerHTML = `
-        <div id="DivCapa">
-            <img src="./src/images/capa-mapa.png"/>
-        </div>
-        `
         subtitle(subEnd[2], 0)
         audio.addEventListener("ended", audio3)
+        audio.addEventListener("timeupdate", endAnimation2)
     }
     function audio3(){
-        $("#container2").style.display = "none"
-        $("#container4").style.display = "flex"
         audio.removeEventListener("ended", audio3)
+        audio.removeEventListener("timeupdate", endAnimation2)
         audio.src = `./src/audios/end/3.mp3`
         subtitle(subEnd[3], 0)
         audio.play()
         audio.addEventListener("ended", audio4)
+        audio.addEventListener("timeupdate", endAnimation3)
     }
     function audio4(){
+        $("#container2").style.display = "none"
+        $("#container4").style.display = "flex"
         audio.removeEventListener("ended", audio3)
         audio.src = `./src/audios/end/4.mp3`
         audio.play()

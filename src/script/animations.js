@@ -30,6 +30,29 @@ let controlerExpression = {
 let controlerMotivation = {
     0:false
 }
+let constrolerEnded = {
+    0:false,
+    1:false,
+    2:false,
+    3:false,
+    4:false,
+    5:false,
+    6:false,
+    7:false,
+    8:false,
+    9:false,
+    10:false,
+    11:false,
+    12:false,
+    13:false,
+    14:false,
+    15:false,
+    16:false,
+    17:false,
+    18:false,
+    19:false,
+    20:false
+}
 let timeBaseDestiny = {
     1: 205,
     2: 192,
@@ -214,6 +237,57 @@ function motivationAnimation(){
         subtitle(subMotivation[`${_gender}_end`], (audio.duration - 87))
         controlerMotivation[1] = true
     }
+}
+function endAnimation1(){
+    let timeAudio = audio.currentTime.toFixed(2)
+    if(timeAudio>42 && !constrolerEnded[0]){
+        $("#container2").innerHTML = "<div id='analizingDiv'></div>"
+        $("#analizingDiv").innerHTML = `
+        <div id="DivCapa">
+        <img src="./src/images/mocckups/livro.png"/>
+        </div>
+        `
+        constrolerEnded[0] = true
+    }
+    insertDivEnd(timeAudio, 73, 1, "<h2>¿No sería <span>maravilloso</span>?</h2>")
+    insertDivEnd(timeAudio, 86, 2, "<h2>¿No sería <span>perfecto</span>?</h2>")
+    insertDivEnd(timeAudio, 97, 3, "<img src='./src/images/mocckups/livro.png'/>")
+}
+function endAnimation2(){
+    let timeAudio = audio.currentTime.toFixed(2)
+    insertDivEnd(timeAudio, 18, 4, "<h2><span>Relaciones</span></h2>")
+    insertDivEnd(timeAudio, 51, 5, "<h2>¿Por qué hacer el <span>mapa de vida completo</span><?/h2>")
+    insertDivEnd(timeAudio, 59, 6, "<img src='./src/images/mocckups/livro.png'/>")
+    insertDivEnd(timeAudio, 87, 7, "<h2>Y eso no es todo...</h2>")
+    insertDivEnd(timeAudio, 90, 8, "<img src='./src/images/mocckups/livro.png'/>")
+    insertDivEnd(timeAudio, 115, 9, `<h2>Descubre tus <span>"Talentos Ocultos"</span> para el éxito</h2>`)
+    insertDivEnd(timeAudio, 125, 10, `<h2>Análisis de tu vida actual y <span>Potencial para el futuro</span></h2>`)
+    insertDivEnd(timeAudio, 135, 11, `<h2>Atrae a las personas Adecuadas, <span>Evitar perder amigos y amores</span></h2>`)
+    insertDivEnd(timeAudio, 143, 12, "<img src='./src/images/mocckups/livro.png'/>")
+    insertDivEnd(timeAudio, 170, 13, "<h2>Cómo leer los Números de tus <span>Amigos y familiares</span></h2>")
+}
+function endAnimation3(){
+    let timeAudio = audio.currentTime.toFixed(2)
+    insertDivEnd(timeAudio, 5, 14, "<img src='./src/images/mocckups/vidapassada/img.png'/>")
+    insertDivEnd(timeAudio, 24, 15, "<img src='./src/images/mocckups/numerodasorte/img.png'/>")
+    insertDivEnd(timeAudio, 42, 16, "<img src='./src/images/mocckups/caminhopreosperidade/img.png'/>")
+    insertDivEnd(timeAudio, 55, 17, "<img src='./src/images/mocckups/melhoresdias/img.png'/>")
+    insertDivEnd(timeAudio, 65, 18, "<img src='./src/images/mocckups/livro.png'/>")
+    if(timeAudio>120 && !constrolerEnded[19]){
+        $("#analizingDiv").innerHTML = `
+        <div id="DivNumber">
+            <div>
+                <img src="./src/images/mandala-object-22.png" class="" style="width: 365px;">
+                <img src="./src/images/mandala-bg.png" class="" style="width: 400px;">
+                <img src="./src/images/mandala-shape-22.png" class="spinY1" style="height: 365px;">
+                <img src="./src/images/mandala-lines-22.png" class="spinY2" style="height: 370px;">
+            </div>
+        </div>
+    `    
+        constrolerEnded[19] = true
+    }
+    insertDivEnd(timeAudio, 180, 20, "<img src='./src/images/mocckups/livro.png'/>")
+    
 }
 
 
@@ -488,5 +562,19 @@ function showTable(timeAudio, timeBase){
     if(timeAudio>(11 + timeBase) && timeAudio<(12 + timeBase)){
         showSpan(2, 5)
         showSpan(2, 6)
+    }
+}
+function insertDivEnd(time, bTime, numJson, textRef){
+    if(time>bTime && time < (bTime+1)){
+        $("#DivCapa").style.opacity = 0
+    }
+    if(time>(bTime+2) && !constrolerEnded[numJson]){
+        $("#DivCapa").innerHTML = `
+            ${textRef}
+        `
+        constrolerEnded[numJson] = true
+    }
+    if(time>(bTime+3) && time < (bTime+4)){
+        $("#DivCapa").style.opacity = 1
     }
 }
