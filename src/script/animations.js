@@ -220,7 +220,7 @@ function motivationAnimation(){
         if(dataRef >= 40){ yaerRed = 40 }
         if(dataRef >= 30){ yaerRed = 30 }
         if(dataRef >= 20){ yaerRed = 20 }
-        subtitle(subMotivation[`${_gender}_${_status}${yaerRed}`])
+        subtitle(subMotivation[`${_gender}_${_status}${yaerRed}`], timeBaseInitMotivation[_gender])
         $("#analizingDiv").innerHTML = `
         <div id="DivNumber">
             <div>

@@ -13,7 +13,7 @@ function subtitle(array, timeInit){
     }, 500)
 }
 
-let subDestiny = {
+let subDestiny = {  
     init: [
         "Hola, bienvenidos. En unos instantes recibirás conocimientos increíbles sobre ti mismo.",
         "Directamente te lo oculto de tu nombre y del día en que naciste.",
