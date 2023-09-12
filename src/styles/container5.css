@@ -61,4 +61,18 @@
     #container5{
         width: 90%;
     }
+    #container5 p{
+        font-size: 14px;
+    }
+} 
+@media (max-width: 500px){
+    #container5{
+        width: 95%;
+    }
+    #container5>div{
+        padding: 20px 10px;
+    }
+    #container5 p{
+        font-size: 11px;
+    }
 } 
