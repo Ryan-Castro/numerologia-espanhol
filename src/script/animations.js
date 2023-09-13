@@ -270,7 +270,7 @@ function endAnimation3(){
     let timeAudio = audio.currentTime.toFixed(2)
     insertDivEnd(timeAudio, 5, 14, "<img src='./src/images/mocckups/vidapassada/img.png'/>")
     insertDivEnd(timeAudio, 24, 15, "<img src='./src/images/mocckups/numerodasorte/img.png'/>")
-    insertDivEnd(timeAudio, 42, 16, "<img src='./src/images/mocckups/caminhopreosperidade/img.png'/>")
+    insertDivEnd(timeAudio, 42, 16, "<img src='./src/images/mocckups/caminhoprosperidade/img.png'/>")
     insertDivEnd(timeAudio, 55, 17, "<img src='./src/images/mocckups/melhoresdias/img.png'/>")
     insertDivEnd(timeAudio, 65, 18, "<img src='./src/images/mocckups/livro.png'/>")
     if(timeAudio>120 && !constrolerEnded[19]){
