@@ -133,8 +133,6 @@ function playEnd(){
         audio.addEventListener("timeupdate", endAnimation3)
     }
     function audio4(){
-        $("#container2").style.display = "none"
-        $("#container4").style.display = "flex"
         audio.removeEventListener("ended", audio3)
         audio.src = `./src/audios/end/4.mp3`
         audio.play()

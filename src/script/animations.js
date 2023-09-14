@@ -51,7 +51,8 @@ let constrolerEnded = {
     17:false,
     18:false,
     19:false,
-    20:false
+    20:false,
+    21:false
 }
 let timeBaseDestiny = {
     1: 205,
@@ -287,6 +288,11 @@ function endAnimation3(){
         constrolerEnded[19] = true
     }
     insertDivEnd(timeAudio, 180, 20, "<img src='./src/images/mocckups/livro.png'/>")
+    if(timeAudio>230 && !constrolerEnded[21]){
+        $("#container2").style.display = "none"
+        $("#container4").style.display = "flex"
+        constrolerEnded[21] = true
+    }
     
 }
 

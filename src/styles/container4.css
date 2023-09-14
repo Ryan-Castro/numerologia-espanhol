@@ -6,7 +6,7 @@
     overflow: hidden;
     margin-top: 20px;
     margin-bottom: 20px;
-    display: flex;
+    display: none;
 }
 #container4 #header{
     background: linear-gradient(to bottom,#463a74 0,#373860 100%);
