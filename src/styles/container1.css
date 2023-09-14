@@ -1,3 +1,6 @@
+#container1{
+    display: none;
+}
 #container1>#contant{
     width: 700px;
     border-radius: 10px;
